@@ -55,13 +55,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Pages\LoginPopup.xaml.cs">
+	  <Compile Update="Popups\LoginPopup.xaml.cs">
 	    <DependentUpon>LoginPopup.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Pages\LoginPopup.xaml">
+	  <MauiXaml Update="Popups\LoginPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

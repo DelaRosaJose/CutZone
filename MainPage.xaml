@@ -1,42 +1,83 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<local:BasePage
+<ContentPage
     x:Class="CutZone.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:CutZone.Pages">
+    xmlns:local="clr-namespace:CutZone.Pages"
+    Shell.NavBarIsVisible="False"
+    Shell.PresentationMode="ModalAnimated">
     <ScrollView>
         <VerticalStackLayout
+            Grid.Column="1"
             Padding="30,0"
+            MaximumWidthRequest="450"
             Spacing="25"
             VerticalOptions="Center">
 
-            <Image
-                HeightRequest="200"
-                HorizontalOptions="Center"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                Source="dotnet_bot.png" />
+            <Frame
+                Padding="0"
+                BackgroundColor="Transparent"
+                BorderColor="#FFBFC1C5"
+                CornerRadius="210"
+                HeightRequest="210"
+                WidthRequest="210">
+                <Image
+                    HeightRequest="210"
+                    SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                    Source="dotnet_bot.png"
+                    WidthRequest="210" />
+            </Frame>
 
-            <Label
-                FontSize="32"
-                HorizontalOptions="Center"
-                SemanticProperties.HeadingLevel="Level1"
-                Text="Hello, World!" />
+            <Frame
+                Margin="0,50,0,0"
+                Padding="0"
+                BackgroundColor="Transparent"
+                BorderColor="#FFBFC1C5"
+                CornerRadius="10"
+                HeightRequest="250">
 
-            <Label
-                FontSize="18"
-                HorizontalOptions="Center"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                SemanticProperties.HeadingLevel="Level2"
-                Text="Welcome to .NET Multi-platform App UI" />
+                <Entry
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    HorizontalTextAlignment="Center"
+                    IsPassword="True"
+                    MaxLength="4"
+                    Placeholder="Usuario"
+                    PlaceholderColor="#FFBFC1C5" />
+            </Frame>
+
+            <Frame
+                Padding="0"
+                BackgroundColor="Transparent"
+                BorderColor="#FFBFC1C5"
+                CornerRadius="10">
+                <Entry
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    HorizontalTextAlignment="Center"
+                    IsPassword="True"
+                    Placeholder="Password"
+                    PlaceholderColor="#FFBFC1C5" />
+            </Frame>
+            <Button
+                x:Name="BtnLogin"
+                BackgroundColor="#FF1D3CAC"
+                Clicked="BtnLogin_Clicked"
+                FontAttributes="Bold"
+                Text="Log in"
+                TextColor="#FFE7E7E7" />
 
             <Button
-                x:Name="CounterBtn"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Text="Click me" />
+                x:Name="BtnCerrar"
+                BackgroundColor="#FFC00000"
+                Clicked="BtnCerrar_Clicked"
+                FontAttributes="Bold"
+                IsVisible="{OnPlatform MacCatalyst=False,
+                                       WinUI=False}"
+                Text="Cerrar Aplicación"
+                TextColor="#FFE7E7E7" />
 
         </VerticalStackLayout>
     </ScrollView>
 
-</local:BasePage>
+</ContentPage>

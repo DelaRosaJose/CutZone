@@ -2,22 +2,18 @@
 
 namespace CutZone;
 
-public partial class MainPage : Pages.BasePage
+public partial class MainPage : ContentPage
 {
-	int count = 0;
+    int count = 0;
 
-	public MainPage()
-	{
-		InitializeComponent();
-	}
-
-    public override void Build()
+    public MainPage()
     {
-        
+        InitializeComponent();
     }
 
+
     private void OnCounterClicked(object sender, EventArgs e)
-	{
+    {
         //count++;
 
         //if (count == 1)
@@ -25,9 +21,16 @@ public partial class MainPage : Pages.BasePage
         //else
         //    CounterBtn.Text = $"Clicked {count} timesww";
 
-        this.ShowPopup(new Pages.LoginPopup());
+        this.ShowPopup(new Popups.LoginPopup());
 
         //SemanticScreenReader.Announce(CounterBtn.Text);
+    }
+
+    private void BtnCerrar_Clicked(object sender, EventArgs e) { }
+
+    private void BtnLogin_Clicked(object sender, EventArgs e)
+    {
+
     }
 }
 
