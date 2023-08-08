@@ -1,14 +1,17 @@
 ﻿using CommunityToolkit.Maui.Views;
+using CutZone.Models;
+using static CutZone.Helpers.SQLiteConnector;
 
 namespace CutZone;
 
 public partial class MainPage : ContentPage
 {
     int count = 0;
-
+    User model;
     public MainPage()
     {
         InitializeComponent();
+        BindingContext = model =  new User();
     }
 
 
@@ -28,9 +31,12 @@ public partial class MainPage : ContentPage
 
     private void BtnCerrar_Clicked(object sender, EventArgs e) { }
 
-    private void BtnLogin_Clicked(object sender, EventArgs e)
+    private async void BtnLogin_Clicked(object sender, EventArgs e)
     {
-
+        if (true)
+        {
+            var test = await db.Table<User>().CountAsync(x => x.Name == model.Name && x.Password == model.Password);
+        }
     }
 }
 

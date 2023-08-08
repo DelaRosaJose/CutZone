@@ -43,7 +43,8 @@
                     IsPassword="True"
                     MaxLength="4"
                     Placeholder="Usuario"
-                    PlaceholderColor="#FFBFC1C5" />
+                    PlaceholderColor="#FFBFC1C5"
+                    Text="{Binding Name}" />
             </Frame>
 
             <Frame
@@ -57,7 +58,8 @@
                     HorizontalTextAlignment="Center"
                     IsPassword="True"
                     Placeholder="Password"
-                    PlaceholderColor="#FFBFC1C5" />
+                    PlaceholderColor="#FFBFC1C5"
+                    Text="{Binding Password}" />
             </Frame>
             <Button
                 x:Name="BtnLogin"

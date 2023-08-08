@@ -1,26 +1,27 @@
-﻿using SQLite;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
-namespace CutZone.Models
+namespace CutZone.ViewModels
 {
-    public class BaseModel : INotifyPropertyChanged
+    public abstract class BaseViewModel : INotifyPropertyChanged//, INotifyPropertyChanging, 
     {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
-        
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
-        public string FormatedDate { get; set; } = DateTime.Now.ToString("M/dd/yyyy h:m:ss tt");
-
-
-
+        //public event PropertyChangingEventHandler PropertyChanging;
         public event PropertyChangedEventHandler PropertyChanged;
-
         private readonly Dictionary<string, object> Dictionary;
-        public BaseModel() => Dictionary = new Dictionary<string, object>();
+
+        public BaseViewModel() => Dictionary = new Dictionary<string, object>();
 
         protected virtual void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
+        //protected void OnPropertyChanging([CallerMemberName] string propetyName = "") => PropertyChanging(this, new PropertyChangingEventArgs(propetyName));
+
+        //protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        //{
+        //    if (PropertyChanged != null)
+        //        PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        //}
 
         public void Set<T>(T value, [CallerMemberName] string propertyName = null, bool siempreNotificar = false)
         {
