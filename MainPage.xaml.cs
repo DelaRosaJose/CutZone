@@ -6,7 +6,6 @@ namespace CutZone;
 
 public partial class MainPage : ContentPage
 {
-    int count = 0;
     User model;
     public MainPage()
     {

@@ -14,6 +14,8 @@ namespace CutZone.Helpers
             db = new SQLiteAsyncConnection(databasePath);
 
             db.CreateTableAsync<User>();
+
+            //db.InsertAsync(new User() {Name = "Jose", Password = "123" });
             
             
         }

@@ -7,7 +7,6 @@ public partial class App : Application
 		InitializeComponent();
 
 		new Helpers.SQLiteConnector();
-		new Helpers.SQLiteConnector();
 
 		MainPage = new AppShell();
 	}

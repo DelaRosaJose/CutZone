@@ -3,7 +3,9 @@
     x:Class="CutZone.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:CutZone.Pages"
+    xmlns:controls="clr-namespace:CutZone.Controls"
+    xmlns:models="clr-namespace:CutZone.Models"
+    x:DataType="{x:Type models:User}"
     Shell.NavBarIsVisible="False"
     Shell.PresentationMode="ModalAnimated">
     <ScrollView>
@@ -28,29 +30,37 @@
                     WidthRequest="210" />
             </Frame>
 
-            <Frame
-                Margin="0,50,0,0"
-                Padding="0"
-                BackgroundColor="Transparent"
-                BorderColor="#FFBFC1C5"
-                CornerRadius="10"
-                HeightRequest="250">
+            <Frame HeightRequest="45">
 
-                <Entry
+                <controls:EntryView
+                    BackgroundColor="Transparent"
                     FontAttributes="Bold"
                     FontSize="Small"
+                    HeightRequest="45"
                     HorizontalTextAlignment="Center"
                     IsPassword="True"
                     MaxLength="4"
                     Placeholder="Usuario"
                     PlaceholderColor="#FFBFC1C5"
                     Text="{Binding Name}" />
+
+                <!--<Entry
+                    Margin="2"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    HeightRequest="30"
+                    HorizontalTextAlignment="Center"
+                    IsPassword="True"
+                    MaxLength="4"
+                    Placeholder="Usuario"
+                    PlaceholderColor="#FFBFC1C5"
+                    Text="{Binding Name}" />-->
             </Frame>
 
             <Frame
                 Padding="0"
                 BackgroundColor="Transparent"
-                BorderColor="#FFBFC1C5"
+                BorderColor="Red"
                 CornerRadius="10">
                 <Entry
                     FontAttributes="Bold"
@@ -61,6 +71,8 @@
                     PlaceholderColor="#FFBFC1C5"
                     Text="{Binding Password}" />
             </Frame>
+
+
             <Button
                 x:Name="BtnLogin"
                 BackgroundColor="#FF1D3CAC"
