@@ -1,16 +1,20 @@
 ﻿using CommunityToolkit.Maui.Views;
 using CutZone.Models;
+using SQLiteService;
 using static CutZone.Helpers.SQLiteConnector;
 
 namespace CutZone;
 
 public partial class MainPage : ContentPage
 {
+    readonly SQLiteRepository _SQliterepository;
+
     User model;
-    public MainPage()
+    public MainPage(SQLiteRepository sQLiteRepository)
     {
+        _SQliterepository= sQLiteRepository;
         InitializeComponent();
-        BindingContext = model =  new User();
+        //BindingContext = model =  new User();
     }
 
 
@@ -32,10 +36,15 @@ public partial class MainPage : ContentPage
 
     private async void BtnLogin_Clicked(object sender, EventArgs e)
     {
-        if (true)
-        {
-            var test = await db.Table<User>().CountAsync(x => x.Name == model.Name && x.Password == model.Password);
-        }
+        SQLiteRepository.SaveItem<User>(new User() { Name = "jose" });
+
+        //_SQliterepository.
+
+        var hola = _SQliterepository.GetTableAll<User>().ToList();
+        //if (true)
+        //{
+        //    var test = await db.Table<User>().CountAsync(x => x.Name == model.Name && x.Password == model.Password);
+        //}
     }
 }
 

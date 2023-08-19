@@ -64,6 +64,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\SQLiteService\SQLiteService.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Compile Update="Popups\LoginPopup.xaml.cs">
 	    <DependentUpon>LoginPopup.xaml</DependentUpon>
 	  </Compile>

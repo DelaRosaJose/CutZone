@@ -2,12 +2,9 @@
 
 public partial class App : Application
 {
-	public App()
-	{
-		InitializeComponent();
-
-		new Helpers.SQLiteConnector();
-
-		MainPage = new AppShell();
-	}
+    public App()
+    {
+        InitializeComponent();
+        MainPage = new AppShell();
+    }
 }

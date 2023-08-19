@@ -89,7 +89,6 @@
         </Setter>
     </Style>
 
-    <Style TargetType="" />
 
     <Style TargetType="Frame">
         <Setter Property="Padding" Value="0" />
