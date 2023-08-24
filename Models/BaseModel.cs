@@ -1,4 +1,4 @@
-﻿using SQLite;
+﻿
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -6,7 +6,7 @@ namespace CutZone.Models
 {
     public class BaseModel : INotifyPropertyChanged
     {
-        [PrimaryKey, AutoIncrement]
+      
         public int Id { get; set; }
         
         public DateTime CreatedAt { get; set; } = DateTime.Now;

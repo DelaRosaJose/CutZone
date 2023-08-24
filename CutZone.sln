@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CutZone", "CutZone.csproj", "{6D646380-BB2F-4C45-9E56-F3136D796CE4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SQLiteService", "SQLiteService\SQLiteService.csproj", "{DAE8C5AE-1525-4CF6-840B-70491B0DE7B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{6D646380-BB2F-4C45-9E56-F3136D796CE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D646380-BB2F-4C45-9E56-F3136D796CE4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6D646380-BB2F-4C45-9E56-F3136D796CE4}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{DAE8C5AE-1525-4CF6-840B-70491B0DE7B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAE8C5AE-1525-4CF6-840B-70491B0DE7B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAE8C5AE-1525-4CF6-840B-70491B0DE7B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAE8C5AE-1525-4CF6-840B-70491B0DE7B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

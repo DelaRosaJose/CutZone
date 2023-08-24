@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui;
 using CutZone.Handlers;
 using CutZone.Models;
+using Material.Components.Maui.Extensions;
 using Microsoft.Extensions.Logging;
 using SQLiteService;
 
@@ -23,6 +24,13 @@ public static class MauiProgram
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            });
+        builder
+            .UseMaterialComponents(new List<string>
+            {
+                //generally, we needs add 6 types of font families
+                "OpenSans-Regular.ttf",
+                "OpenSans-Semibold.ttf",
             });
 
 #if DEBUG

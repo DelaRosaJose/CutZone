@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Maui.Views;
 using CutZone.Models;
 using SQLiteService;
-using static CutZone.Helpers.SQLiteConnector;
 
 namespace CutZone;
 

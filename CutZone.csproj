@@ -49,18 +49,32 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="SQLiteService\**" />
 	  <AndroidResource Remove="ViewModels\**" />
+	  <Compile Remove="SQLiteService\**" />
 	  <Compile Remove="ViewModels\**" />
+	  <EmbeddedResource Remove="SQLiteService\**" />
 	  <EmbeddedResource Remove="ViewModels\**" />
+	  <MauiCss Remove="SQLiteService\**" />
 	  <MauiCss Remove="ViewModels\**" />
+	  <MauiXaml Remove="SQLiteService\**" />
 	  <MauiXaml Remove="ViewModels\**" />
+	  <None Remove="SQLiteService\**" />
 	  <None Remove="ViewModels\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Helpers\SQLiteConnector.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="5.2.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
-		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+    <PackageReference Include="Material.Components.Maui" Version="0.1.2-beta" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="SQLiteService\SQLiteService.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -71,6 +85,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Popups\LoginPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\LoginView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

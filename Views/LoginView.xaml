@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CutZone.Views.LoginView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mdc="clr-namespace:Material.Components.Maui;assembly=Material.Components.Maui"
+    xmlns:models="clr-namespace:CutZone.Models"
+    x:DataType="{x:Type models:User}"
+    BackgroundColor="{StaticResource SadoraPrimaryColor}"
+    Shell.NavBarIsVisible="False"
+    Shell.PresentationMode="ModalAnimated">
+    <Grid>
+
+        <BoxView
+            CornerRadius="100,100,150,200"
+            HeightRequest="530"
+            HorizontalOptions="Center"
+            IsVisible="{OnIdiom Default=True,
+                                Phone=False}"
+            Rotation="45"
+            TranslationY="35"
+            VerticalOptions="Center"
+            WidthRequest="530"
+            Color="{StaticResource SadoraSecondaryColor}">
+            <BoxView.Shadow>
+                <Shadow
+                    Brush="black"
+                    Opacity="0.3"
+                    Radius="50"
+                    Offset="25,25" />
+            </BoxView.Shadow>
+        </BoxView>
+
+
+        <VerticalStackLayout
+            Grid.Column="1"
+            Padding="30,0"
+            HorizontalOptions="Center"
+            MaximumWidthRequest="450"
+            Spacing="25"
+            VerticalOptions="Center">
+
+            <!--<mdc:Button
+                EnableTouchEvents="False"
+                IconKind="Cut"
+                Padding="0"
+                FontSize="30"
+                Style="{DynamicResource StandardIconButtonStyle}" />-->
+
+            <VerticalStackLayout HorizontalOptions="Center">
+                <Label
+                    FontSize="17"
+                    HorizontalOptions="Start"
+                    Text="Welcome! to"
+                    TextColor="#7aa19e"
+                    TranslationX="-30" />
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="27"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Text="CutZone"
+                    TextColor="{StaticResource SadoraPrimaryColor}"
+                    TranslationX="35"
+                    TranslationY="-10" />
+
+            </VerticalStackLayout>
+
+            <mdc:TextField
+                ActiveIndicatorHeight="1"
+                FontSize="19"
+                ForegroundColor="{StaticResource SadoraPrimaryColor}"
+                IconKind="Person"
+                LabelText="Usuario"
+                LabelTextColor="{StaticResource SadoraPrimaryColor}"
+                OutlineWidth="0"
+                Style="{DynamicResource OutlinedTextFieldStyle}"
+                SupportingText="" />
+
+            <mdc:TextField
+                ActiveIndicatorHeight="1"
+                CaretPosition="5"
+                FontSize="19"
+                ForegroundColor="{StaticResource SadoraPrimaryColor}"
+                IconKind="Password"
+                LabelText="Contraseña"
+                LabelTextColor="{StaticResource SadoraPrimaryColor}"
+                OutlineWidth="0"
+                Style="{DynamicResource OutlinedTextFieldStyle}"
+                SupportingText="" />
+
+
+
+            <!--<mdc:IconButton
+                Margin="20,10"
+                HeightRequest="60"
+                HorizontalOptions="End"
+                IconKind="Login"
+                RippleColor="{StaticResource SadoraPrimaryColor}"
+                WidthRequest="60">
+                <mdc:IconButton.Shadow>
+                    <Shadow
+                        Brush="black"
+                        Opacity="0.3"
+                        Radius="5"
+                        Offset="5,3" />
+                </mdc:IconButton.Shadow>
+            </mdc:IconButton>-->
+
+            <mdc:Button
+                Elevation="100"
+                FontSize="15"
+                FontWeight="900"
+                HorizontalOptions="Center"
+                IconKind="Login"
+                Shape="0,20,20,0"
+                Text="Log in"
+                WidthRequest="200" />
+
+
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

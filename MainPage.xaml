@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:CutZone.Controls"
+    xmlns:mdc="clr-namespace:Material.Components.Maui;assembly=Material.Components.Maui"
     xmlns:models="clr-namespace:CutZone.Models"
     x:DataType="{x:Type models:User}"
     Shell.NavBarIsVisible="False"
@@ -71,6 +72,8 @@
                     PlaceholderColor="#FFBFC1C5"
                     Text="{Binding Password}" />
             </Frame>
+
+            <mdc:Button IconKind="Add" Text="button" />
 
 
             <Button
