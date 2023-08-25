@@ -74,7 +74,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="SQLiteService\SQLiteService.csproj" />
+	  <ProjectReference Include="..\SQLiteService\SQLiteService.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
