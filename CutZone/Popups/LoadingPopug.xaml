@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mct:Popup
+    x:Class="CutZone.Popups.LoadingPopug"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
+    CanBeDismissedByTappingOutsideOfPopup="False"
+    Color="Transparent">
+    <!--<HorizontalStackLayout>-->
+    <Frame
+        BackgroundColor="{StaticResource SadoraSecondaryColor}"
+        HeightRequest="65"
+        HorizontalOptions="Center"
+        WidthRequest="65">
+
+        <ActivityIndicator HeightRequest="48" WidthRequest="48" IsRunning="True" />
+    </Frame>
+    <!--</HorizontalStackLayout>-->
+</mct:Popup>

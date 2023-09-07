@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CutZone.Views.LoginView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cmtk="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
+    xmlns:controls="clr-namespace:CutZone.Controls"
+    xmlns:models="clr-namespace:CutZone.ViewModels"
+    x:DataType="{x:Type models:LoginViewModel}"
+    BackgroundColor="#FFFDF6F0"
+    Shell.NavBarIsVisible="False"
+    Shell.PresentationMode="ModalAnimated">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Frame">
+                <Setter Property="CornerRadius" Value="25" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+            </Style>
+            <Style TargetType="controls:Icon">
+                <Setter Property="Margin" Value="15,0,5,0" />
+                <Setter Property="IconColor" Value="{StaticResource SadoraPrimaryColor}" />
+            </Style>
+            <Style x:Key="GridControls" TargetType="Grid">
+                <Setter Property="ColumnDefinitions" Value="auto,*" />
+            </Style>
+            <Style x:Key="GridBody" TargetType="Grid">
+                <Setter Property="ColumnDefinitions" Value="{OnIdiom Phone='.1*,*,.1*', Tablet='.4*,*,.4*', Desktop='.8*,*,.8*'}" />
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="PlaceholderColor" Value="DarkGray" />
+                <Setter Property="FontSize" Value="Body" />
+                <!--<Setter Property="FontAttributes" Value="Bold" />-->
+
+                <Setter Property="TextColor" Value="{StaticResource SadoraPrimaryColor}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout Spacing="25" VerticalOptions="Center">
+
+        <cmtk:AvatarView
+            Margin="0,0,0,50"
+            BackgroundColor="Transparent"
+            BorderColor="{StaticResource SadoraPrimaryColor}"
+            CornerRadius="150"
+            FontSize="50"
+            HeightRequest="150"
+            Text="CZ"
+            WidthRequest="150" />
+
+        <Grid Style="{StaticResource GridBody}">
+            <Frame Grid.Column="1">
+                <Grid Style="{StaticResource GridControls}">
+                    <controls:Icon />
+                    <Entry Grid.Column="1" Placeholder="Usuario" />
+                </Grid>
+            </Frame>
+        </Grid>
+
+        <Grid Style="{StaticResource GridBody}">
+            <Frame Grid.Column="1">
+                <Grid Style="{StaticResource GridControls}">
+                    <controls:Icon IconKind="{StaticResource Lock}" />
+                    <Entry
+                        Grid.Column="1"
+                        IsPassword="True"
+                        Placeholder="Contraseña" />
+                </Grid>
+
+            </Frame>
+        </Grid>
+        <Button
+            Margin="0,40"
+            Padding="75,0"
+            BackgroundColor="{StaticResource SadoraPrimaryColor}"
+            CornerRadius="25"
+            FontAttributes="Bold"
+            FontSize="Body"
+            HeightRequest="50"
+            HorizontalOptions="Center"
+            Text="Log In!"
+            TextColor="White" />
+
+
+    </VerticalStackLayout>
+</ContentPage>
