@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="CutZone.Views.LoginView"
+    x:Class="CutZone.Views.LoginPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:cmtk="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
     xmlns:controls="clr-namespace:CutZone.Controls"
     xmlns:models="clr-namespace:CutZone.ViewModels"
     x:DataType="{x:Type models:LoginViewModel}"
-    BackgroundColor="#FFFDF6F0"
-    Shell.NavBarIsVisible="False"
-    Shell.PresentationMode="ModalAnimated">
+    Shell.FlyoutBehavior="Disabled">
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Frame">
@@ -54,7 +53,10 @@
             <Frame Grid.Column="1">
                 <Grid Style="{StaticResource GridControls}">
                     <controls:Icon />
-                    <Entry Grid.Column="1" Placeholder="Usuario" />
+                    <Entry
+                        Grid.Column="1"
+                        Placeholder="Usuario"
+                        Text="{Binding Name}" />
                 </Grid>
             </Frame>
         </Grid>
@@ -66,15 +68,18 @@
                     <Entry
                         Grid.Column="1"
                         IsPassword="True"
-                        Placeholder="Contraseña" />
+                        Placeholder="Contraseña"
+                        Text="{Binding Password}" />
                 </Grid>
 
             </Frame>
         </Grid>
+
         <Button
             Margin="0,40"
             Padding="75,0"
             BackgroundColor="{StaticResource SadoraPrimaryColor}"
+            Command="{Binding LoginCommand}"
             CornerRadius="25"
             FontAttributes="Bold"
             FontSize="Body"

@@ -1,4 +1,6 @@
-﻿using CutZone.Handlers;
+﻿using CommunityToolkit.Maui.Core;
+using CutZone.Handlers;
+using CutZone.ViewModels;
 using CutZone.Views;
 using Microsoft.Extensions.Logging;
 using SQLiteService;
@@ -8,9 +10,9 @@ namespace CutZone;
 public static class MauiProgram
 {
     private static readonly Type[] tableTypes = new Type[]
-        {
-            typeof(Models.User)
-        };
+    {
+        typeof(Models.User)
+    };
 
     public static MauiApp CreateMauiApp()
     {
@@ -23,6 +25,7 @@ public static class MauiProgram
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("MaterialIcons-Regular.ttf", "GoogleFont");
+                fonts.AddFont("MaterialIconsOutlined-Regular.otf", "GoogleFontOutline");
                 fonts.AddFont("Roboto-Regular.ttf", "RobotoRegular");
                 fonts.AddFont("Roboto-Medium.ttf", "RobotoMedium");
             })
@@ -37,21 +40,25 @@ public static class MauiProgram
 
         builder.Services.AddSingleton(new SQLiteRepository(tableTypes));
         builder.Services.AddSingleton<IConnectivity>((e) => Connectivity.Current);
+  
 
         #endregion
 
 
         #region ViewModels DI
-        //builder.Services.AddSingleton<LoginView>();
+        builder.Services.AddSingleton<LoginViewModel>();
         #endregion
 
 
         #region Views DI
-        builder.Services.AddSingleton<LoginView>();
+        builder.Services.AddSingleton<LoginPage>();
 
         #endregion
 
 
+
         return builder.Build();
     }
+
+
 }

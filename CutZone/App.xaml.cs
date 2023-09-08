@@ -1,11 +1,25 @@
-﻿namespace CutZone;
+﻿using CutZone.Helper;
+using CutZone.Models;
+using SQLiteService;
+
+namespace CutZone;
 
 public partial class App : Application
 {
-	public App()
-	{
-		InitializeComponent();
 
-		MainPage = new AppShell();
-	}
+    private readonly SQLiteRepository _sqliteRepository;
+    public App(SQLiteRepository sqliteRepository)
+    {
+        InitializeComponent();
+        _sqliteRepository = sqliteRepository;
+
+        _sqliteRepository.CreateNotExists<User>(x => x.Name == "Admin",
+            () => new User
+            {
+                Name = "Admin",
+                Password = Hasher.ComputeHash("520210")
+            });
+
+        MainPage = new AppShell();
+    }
 }
