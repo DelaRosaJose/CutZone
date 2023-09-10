@@ -12,7 +12,6 @@ public partial class LoginViewModel : Model
 {
     private readonly SQLiteRepository _sqliteRepository;
     private readonly IConnectivity _connectivity;
-    private readonly IToast _toast;
 
     public LoginViewModel(IConnectivity connectivity, SQLiteRepository sqliteRepository)
     {

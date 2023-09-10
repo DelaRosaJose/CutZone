@@ -27,11 +27,8 @@
                 <Setter Property="ColumnDefinitions" Value="{OnIdiom Phone='.1*,*,.1*', Tablet='.4*,*,.4*', Desktop='.8*,*,.8*'}" />
             </Style>
             <Style TargetType="Entry">
-                <Setter Property="HorizontalTextAlignment" Value="Center" />
                 <Setter Property="PlaceholderColor" Value="DarkGray" />
                 <Setter Property="FontSize" Value="Body" />
-                <!--<Setter Property="FontAttributes" Value="Bold" />-->
-
                 <Setter Property="TextColor" Value="{StaticResource SadoraPrimaryColor}" />
             </Style>
         </ResourceDictionary>

@@ -4,64 +4,26 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:CutZone.Controls"
-    xmlns:views="clr-namespace:CutZone.Views">
-
-    <!--<Shell.FlyoutHeaderTemplate>
-                <DataTemplate>
-                    <BoxView HeightRequest="68"/>
-                </DataTemplate>
-
-            </Shell.FlyoutHeaderTemplate>-->
+    xmlns:views="clr-namespace:CutZone.Views"
+    >
 
 
-    <!--<Shell.FlyoutFooter >
-        <FlyoutItem >
-    -->
-    <!--<Shell.FlyoutFooterTemplate>-->
-    <!--
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate views:LoginPage}"
+        FlyoutItemIsVisible="False"
+        Route="MainPage" />
 
-            <FlyoutItem.Icon>
-                <FileImageSource File="home.png" />
-            </FlyoutItem.Icon>
-    -->
-    <!--<FlyoutItem.Icon>
-            <FontImageSource FontFamily="GoogleFont" Size="80" Color="Black" Glyph="{StaticResource Supervised_user_circle}" />
-        </FlyoutItem.Icon>-->
-    <!--
-            <ShellContent ContentTemplate="{DataTemplate views:HomePage}" />
-    -->
-    <!--</Shell.FlyoutFooterTemplate>-->
-    <!--
-        </FlyoutItem>
-    </Shell.FlyoutFooter>-->
 
-    <!--<Shell.FlyoutFooter>
-        <FlyoutItem>
+    <!--  Desktop/Tablet  -->
+    <FlyoutItem>
 
-            <FlyoutItem.Icon>
-                <FileImageSource File="home.png" />
-            </FlyoutItem.Icon>
-    -->
-    <!--<FlyoutItem.Icon>
-            <FontImageSource FontFamily="GoogleFont" Size="80" Color="Black" Glyph="{StaticResource Supervised_user_circle}" />
-        </FlyoutItem.Icon>-->
-    <!--
-            <ShellContent ContentTemplate="{DataTemplate views:HomePage}" />
-        </FlyoutItem>
-    -->
-    <!--<StackLayout BackgroundColor="#c1c1c1">
-            <Label
-                FontAttributes="Bold"
-                HorizontalOptions="Center"
-                Text=".Net MAUI Virendra Thakur"
-                TextColor=" Black" />
-            <Label
-                HorizontalOptions="Center"
-                Text="gheeta"
-                TextColor=" Black" />
-        </StackLayout>-->
-    <!--
-    </Shell.FlyoutFooter>-->
+        <FlyoutItem.Icon>
+            <FileImageSource File="home.png" />
+        </FlyoutItem.Icon>
+        <ShellContent ContentTemplate="{DataTemplate views:HomePage}" />
+    </FlyoutItem>
+
 
     <Shell.FlyoutFooterTemplate>
         <DataTemplate>
@@ -69,85 +31,32 @@
                 <Grid.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                 </Grid.GestureRecognizers>
-                <BoxView
-                    Margin="10,0"
-                    HeightRequest="1"
-                    Color="LightGray" />
+                <Line
+                    Grid.Row="1"
+                    HorizontalOptions="Center"
+                    Stroke="LightGray"
+                    StrokeThickness="0.8"
+                    X1="40"
+                    X2="0"
+                    Y1="0"
+                    Y2="0" />
 
                 <Image
-                    Grid.Row="1"
+                    Grid.Row="2"
                     HeightRequest="20"
                     HorizontalOptions="Center"
                     Source="settings.png"
                     VerticalOptions="Center" />
 
-                <!--<Label
-                    FontFamily="GoogleFontOutline"
-                    FontSize="25"
-                    HorizontalOptions="Center"
-                    Text="{StaticResource OutlineSettings}"
-                    VerticalOptions="Center" />-->
 
             </Grid>
         </DataTemplate>
 
     </Shell.FlyoutFooterTemplate>
 
-    <!--  Shell.FlyoutBehavior="Disabled"  -->
-
-    <!--  Desktop/Tablet  -->
-
-    <FlyoutItem>
-
-        <FlyoutItem.Icon>
-            <FileImageSource File="home.png" />
-        </FlyoutItem.Icon>
-        <!--<FlyoutItem.Icon>
-            <FontImageSource FontFamily="GoogleFont" Size="80" Color="Black" Glyph="{StaticResource Supervised_user_circle}" />
-        </FlyoutItem.Icon>-->
-        <ShellContent ContentTemplate="{DataTemplate views:HomePage}" />
-    </FlyoutItem>
 
 
-    <!--<FlyoutItem>
-        <FlyoutItem.Icon>
-            <FontImageSource
-                FontFamily="GoogleFontOutline"
-                Glyph="{StaticResource OutlineHome}"
 
-                Size="100"
-                Color="{StaticResource SadoraPrimaryColor}" />
-        </FlyoutItem.Icon>
-        <ShellContent ContentTemplate="{DataTemplate views:HomePage}" />
-    </FlyoutItem>-->
 
-    <!--<FlyoutItem Title="Home" Icon="{FontImage FontFamily=FontAwesomeSolid, Glyph={x:Static helpers:FontAwesomeIcons.House}, Size=50}">-->
-    <!--<FlyoutItem Title="Home" Icon="{FontImage FontFamily=GoogleFont, Glyph={StaticResource Person}, Size=100, Color=Red}">
-        <ShellContent ContentTemplate="{DataTemplate views:LoginPage}">
-            <ShellContent.Icon>
-                <FontImageSource
-                    FontFamily="FontAwesomeSolid"
-                    Glyph="{StaticResource House}"
-                    Size="50"
-                    Color="White" />
-            </ShellContent.Icon>
-        </ShellContent>
-    </FlyoutItem>-->
-
-    <!--<FlyoutItem Title="Favorites" Icon="tab_favorites.png">
-        <ShellContent />
-    </FlyoutItem>
-    <FlyoutItem Title="Map" Icon="tab_map.png">
-        <ShellContent />
-    </FlyoutItem>
-    <FlyoutItem FlyoutItemIsVisible="False" Route="settings">
-        <ShellContent />
-    </FlyoutItem>-->
-
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate views:LoginPage}"
-        FlyoutItemIsVisible="False"
-        Route="MainPage" />
 
 </Shell>
