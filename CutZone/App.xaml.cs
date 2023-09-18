@@ -20,6 +20,14 @@ public partial class App : Application
                 Password = Hasher.ComputeHash("520210")
             });
 
+        _sqliteRepository.CreateNotExists<Article>(x => x.Name == "Vape",
+            () => new Article
+            {
+                Name = "Vape",
+                Modelo = "Brand New",
+                Precio = 250
+            });
+
         MainPage = new AppShell();
     }
 }

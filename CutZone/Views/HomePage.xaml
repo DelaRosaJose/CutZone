@@ -6,7 +6,14 @@
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IsEnabled="False" IsVisible="False" />
     </Shell.BackButtonBehavior>
-
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="Cards" TargetType="Border">
+                <Setter Property="Margin" Value="10" />
+                <Setter Property="StrokeShape" Value="RoundRectangle 10" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <Border
         Margin="0,5,0,0"
         BackgroundColor="#fcfcfc"
@@ -14,8 +21,50 @@
         StrokeThickness="0.5">
         <Border.StrokeShape>
             <RoundRectangle CornerRadius="5,0,0,0" />
-
         </Border.StrokeShape>
+
+        <Grid
+            Margin="20"
+            ColumnDefinitions="*,*,*"
+            RowDefinitions="*,*,*">
+            <Border
+                Grid.RowSpan="2"
+                Grid.ColumnSpan="2"
+                BackgroundColor="#2c313c"
+                Style="{StaticResource Cards}">
+                <VerticalStackLayout HorizontalOptions="Center">
+                    <Label
+                        Margin="15"
+                        FontSize="Large"
+                        Text="Ventas del dia"
+                        TextColor="#f3f3f3" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border
+                Grid.Row="1"
+                Grid.Column="2"
+                BackgroundColor="#536d6b"
+                Style="{StaticResource Cards}" />
+            <Border
+                Grid.Row="2"
+                Grid.Column="2"
+                BackgroundColor="#9cadd4"
+                Style="{StaticResource Cards}" />
+            <Border
+                Grid.Row="2"
+                BackgroundColor="#646f88"
+                Style="{StaticResource Cards}" />
+            <Border
+                Grid.Row="2"
+                Grid.Column="1"
+                BackgroundColor="#9cb5b5"
+                Style="{StaticResource Cards}" />
+            <Border
+                Grid.Column="2"
+                BackgroundColor="#724d27"
+                Style="{StaticResource Cards}" />
+        </Grid>
 
 
     </Border>

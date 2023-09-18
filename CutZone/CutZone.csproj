@@ -59,6 +59,7 @@
 	  <None Remove="Resources\Fonts\Roboto-Medium.ttf" />
 	  <None Remove="Resources\Fonts\Roboto-Regular.ttf" />
 	  <None Remove="Resources\Images\home.png" />
+	  <None Remove="Resources\Images\inventory.png" />
 	  <None Remove="Resources\Images\settings.png" />
 	</ItemGroup>
 
@@ -74,6 +75,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\ArticlePage.xaml.cs">
+	    <DependentUpon>ArticlePage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\LoginPage.xaml.cs">
 	    <DependentUpon>LoginPage.xaml</DependentUpon>
 	  </Compile>
@@ -81,6 +85,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Resources\Styles\IconTemplate.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ArticlePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\HomePage.xaml">

@@ -24,7 +24,11 @@ public partial class LoginViewModel : Model
     {
         string PassHash = Hasher.ComputeHash(Password);
         if (_sqliteRepository.Any<Model>(x => x.Name == Name && x.Password == PassHash))
+        {
+
+            //Shell.Current.CurrentItem = Shell.Current.Items[0]; 
             await Shell.Current.GoToAsync($"{nameof(HomePage)}");
+        }
         else
             Toaster.MakeToast("Credenciales Incorrectas");
         //Name = "Jose";

@@ -11,7 +11,8 @@ public static class MauiProgram
 {
     private static readonly Type[] tableTypes = new Type[]
     {
-        typeof(Models.User)
+        typeof(Models.User),
+        typeof(Models.Article),
     };
 
     public static MauiApp CreateMauiApp()
@@ -47,11 +48,13 @@ public static class MauiProgram
 
         #region ViewModels DI
         builder.Services.AddSingleton<LoginViewModel>();
+        builder.Services.AddSingleton<ArticleViewModel>();
         #endregion
 
 
         #region Views DI
         builder.Services.AddSingleton<LoginPage>();
+        builder.Services.AddSingleton<ArticlePage>();
 
         #endregion
 
