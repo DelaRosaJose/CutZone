@@ -17,6 +17,11 @@ public partial class LoginViewModel : Model
     {
         _connectivity = connectivity;
         _sqliteRepository = sqliteRepository;
+
+#if DEBUG
+        this.Name = "Admin";
+        this.Password = "520210";
+#endif
     }
 
     [RelayCommand]
@@ -24,18 +29,9 @@ public partial class LoginViewModel : Model
     {
         string PassHash = Hasher.ComputeHash(Password);
         if (_sqliteRepository.Any<Model>(x => x.Name == Name && x.Password == PassHash))
-        {
-
-            //Shell.Current.CurrentItem = Shell.Current.Items[0]; 
             await Shell.Current.GoToAsync($"{nameof(HomePage)}");
-        }
         else
             Toaster.MakeToast("Credenciales Incorrectas");
-        //Name = "Jose";
-        //Password = "123";
-        //Save();
-
-        //_sqliteRepository.UpdateProperties<Model, LoginViewModel>(result, this);
 
     }
 

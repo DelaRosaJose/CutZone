@@ -1,3 +1,4 @@
+using CutZone.Models;
 using CutZone.ViewModels;
 
 namespace CutZone.Views;
@@ -8,7 +9,8 @@ public partial class ArticlePage : ContentPage
     {
         BindingContext = vm;
         InitializeComponent();
-        ListArticles.ItemsSource = vm.viewmodel;
+        //ListArticles.ItemsSource = vm.Viewmodel;
 
     }
+
 }

@@ -9,8 +9,8 @@ namespace CutZone.Models.Base
     {
 
         [ObservableProperty]
-        [property: PrimaryKey]
-        long id;
+        [property: PrimaryKey, NotNull]
+        string id= Guid.NewGuid().ToString("n");
 
         [ObservableProperty]
         long createdAt;
