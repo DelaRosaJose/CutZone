@@ -49,6 +49,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Controls\CursorIcon.cs" />
+	  <Compile Remove="Handlers\CursorBehavior.cs" />
+	  <Compile Remove="Handlers\CursorExtension.cs" />
 	  <Compile Remove="ViewModels\BaseViewModel.cs" />
 	  <Compile Remove="ViewModels\Test.cs" />
 	</ItemGroup>

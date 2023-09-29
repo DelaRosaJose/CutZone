@@ -7,6 +7,9 @@ namespace CutZone.Models
     {
 
         [ObservableProperty]
+        bool activo;
+
+        [ObservableProperty]
         string name;
 
         [ObservableProperty]

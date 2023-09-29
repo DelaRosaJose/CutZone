@@ -3,6 +3,7 @@
     x:Class="CutZone.Views.ArticlePage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Cursor="clr-namespace:CutZone.Handlers"
     xmlns:controls="clr-namespace:CutZone.Controls"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:vm="clr-namespace:CutZone.ViewModels"
@@ -33,23 +34,40 @@
             </Style>-->
         </ResourceDictionary>
     </ContentPage.Resources>
-    <Grid ColumnDefinitions=".45*,*">
-        <ScrollView BackgroundColor="LightGray">
-            <VerticalStackLayout>
-                <ListView x:Name="ListArticles" ItemsSource="{Binding Viewmodel}">
-                    <ListView.Behaviors>
-                        <toolkit:EventToCommandBehavior
-                            Command="{Binding SelectedArticleCommand}"
-                            EventArgsConverter="{StaticResource SelectedItemEventArgsConverter}"
-                            EventName="ItemSelected" />
-                    </ListView.Behaviors>
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <Frame Margin="5" BorderColor="Black">
+    <Border
+        Margin="0,5,0,0"
+        BackgroundColor="#fcfcfc"
+        Stroke="#e5e5e5"
+        StrokeThickness="0.5">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="5,0,0,0" />
+        </Border.StrokeShape>
+        <Grid ColumnDefinitions=".45*,*">
+            <ScrollView BackgroundColor="#dcdcdc">
+                <VerticalStackLayout>
+                    <ListView x:Name="ListArticles" ItemsSource="{Binding Viewmodel}">
+                        <ListView.Behaviors>
+                            <toolkit:EventToCommandBehavior
+                                Command="{Binding SelectedArticleCommand}"
+                                EventArgsConverter="{StaticResource SelectedItemEventArgsConverter}"
+                                EventName="ItemSelected" />
+                        </ListView.Behaviors>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <!--<Frame Margin="5" BorderColor="Black">-->
+                                    <Border
+                                        Margin="5"
+                                        BackgroundColor="#f3f3f3"
+                                        HeightRequest="80"
+                                        Stroke="#393939"
+                                        StrokeThickness="0.5">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="10" />
+                                        </Border.StrokeShape>
 
-                                    <VerticalStackLayout>
-                                        <!--<Grid.RowDefinitions>
+                                        <VerticalStackLayout Margin="5,0,0,0" VerticalOptions="Center">
+                                            <!--<Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
@@ -57,111 +75,133 @@
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>-->
-                                        <!--<Image
+                                            <!--<Image
                                         Grid.RowSpan="2"
                                         Aspect="AspectFill"
                                         HeightRequest="60"
                                         Source="{Binding ImageUrl}"
                                         WidthRequest="60" />-->
 
-                                        <Label FontAttributes="Bold" Text="{Binding Name}" />
-                                        <Label
-                                            FontAttributes="Italic"
-                                            Text="{Binding Modelo}"
-                                            VerticalOptions="End" />
-                                        <Label FontAttributes="Bold" Text="{Binding Precio}" />
+                                            <Label
+                                                Margin="10,0,0,0"
+                                                FontAttributes="Bold"
+                                                Text="{Binding Name}" />
+                                            <Label
+                                                FontAttributes="Italic"
+                                                Text="{Binding Modelo}"
+                                                VerticalOptions="End" />
+                                            <Label FontAttributes="Bold" Text="{Binding Precio}" />
 
-                                    </VerticalStackLayout>
-                                </Frame>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                    <!--<ListView.ItemTemplate>
+                                        </VerticalStackLayout>
+                                    </Border>
+                                    <!--</Frame>-->
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <!--<ListView.ItemTemplate>
                         <DataTemplate>
                             <Label Text="{Binding Name}" />
                         </DataTemplate>
                     </ListView.ItemTemplate>-->
-                </ListView>
-            </VerticalStackLayout>
-        </ScrollView>
+                    </ListView>
+                </VerticalStackLayout>
+            </ScrollView>
 
-        <Grid Grid.Column="1" ColumnDefinitions=".2*,.60*,.2*">
-            <VerticalStackLayout Grid.Column="1" Spacing="15">
-                <Label HorizontalOptions="Center" Text="Articulos" />
-                <!--<Entry
+            <Grid Grid.Column="1" ColumnDefinitions=".2*,.60*,.2*">
+                <VerticalStackLayout Grid.Column="1" Spacing="15">
+                    <Label
+                        Margin="20"
+                        FontAttributes="Bold"
+                        FontSize="Title"
+                        HorizontalOptions="Center"
+                        Text="Articulos" />
+
+                    <!--<Entry
                     BackgroundColor="LightGray"
                     Placeholder="Nombre"
                     Text="{Binding Name}" />-->
 
-                <Frame>
-                    <Grid Style="{StaticResource GridControls}">
-                        <controls:Icon IconKind="{StaticResource Inventory_2}" />
-                        <Entry
-                            Grid.Column="1"
-                            Placeholder="Nombre"
-                            Text="{Binding Name}" />
-                    </Grid>
+                    <HorizontalStackLayout HorizontalOptions="End">
+                        <CheckBox HorizontalOptions="End" IsChecked="{Binding Activo}" />
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="Small"
+                            HorizontalOptions="Start"
+                            Text="Activo"
+                            VerticalOptions="Center" />
+                    </HorizontalStackLayout>
 
-                </Frame>
+                    <Frame>
+                        <Grid Style="{StaticResource GridControls}">
+                            <controls:Icon IconKind="{StaticResource Inventory_2}" />
+                            <Entry
+                                Grid.Column="1"
+                                Placeholder="Nombre"
+                                Text="{Binding Name}" />
+                        </Grid>
+
+                    </Frame>
 
 
-                <Frame>
-                    <Grid Style="{StaticResource GridControls}">
-                        <controls:Icon IconKind="{StaticResource Mode}" />
-                        <Entry
-                            Grid.Column="1"
-                            Placeholder="Modelo"
-                            Text="{Binding Modelo}" />
-                    </Grid>
-                </Frame>
+                    <Frame>
+                        <Grid Style="{StaticResource GridControls}">
+                            <controls:Icon IconKind="{StaticResource Mode}" />
+                            <Entry
+                                Grid.Column="1"
+                                Placeholder="Modelo"
+                                Text="{Binding Modelo}" />
+                        </Grid>
+                    </Frame>
 
-                <Frame>
-                    <Grid Style="{StaticResource GridControls}">
-                        <controls:Icon IconKind="{StaticResource Attach_money}" />
-                        <Entry
-                            Grid.Column="1"
-                            Placeholder="Precio"
-                            Text="{Binding Precio}" />
-                    </Grid>
-                </Frame>
+                    <Frame>
+                        <Grid Style="{StaticResource GridControls}">
+                            <controls:Icon IconKind="{StaticResource Attach_money}" />
+                            <Entry
+                                Grid.Column="1"
+                                Placeholder="Precio"
+                                Text="{Binding Precio}" />
+                        </Grid>
+                    </Frame>
+
+                    <Button
+                        Command="{Binding SaveArticleCommand}"
+                        FontAttributes="Bold"
+                        FontSize="Subtitle"
+                        Text="Guardar">
+
+                        <Button.ImageSource>
+                            <FontImageSource FontFamily="GoogleFont" Glyph="{StaticResource Save}" />
+                        </Button.ImageSource>
+                    </Button>
+
+                </VerticalStackLayout>
+
 
                 <Button
-                    Command="{Binding SaveArticleCommand}"
+                    Grid.Column="2"
+                    Margin="25"
+                    Padding="0"
+                    BackgroundColor="#4e9942"
+                    Command="{Binding ClearSelectedArticleCommand}"
+                    CornerRadius="25"
                     FontAttributes="Bold"
                     FontSize="Subtitle"
-                    Text="Guardar">
-                    <Button.ImageSource>
-                        <FontImageSource FontFamily="GoogleFont" Glyph="{StaticResource Save}" />
-                    </Button.ImageSource>
-                </Button>
-
-            </VerticalStackLayout>
-
-
-            <Button
-                Grid.Column="2"
-                Margin="25"
-                Padding="0"
-                BackgroundColor="#4e9942"
-                Command="{Binding ClearSelectedArticleCommand}"
-                CornerRadius="25"
-                FontAttributes="Bold"
-                FontSize="Subtitle"
-                HorizontalOptions="End"
-                Text="+"
-                TextColor="#2c313c"
-                ToolTipProperties.Text="Limpiar Campos"
-                VerticalOptions="End">
-                <!--<Button.ImageSource>
+                    HorizontalOptions="End"
+                    Text="+"
+                    TextColor="#2c313c"
+                    ToolTipProperties.Text="Limpiar Campos"
+                    VerticalOptions="End">
+                    <!--<Button.ImageSource>
                     <FontImageSource
                         FontFamily="GoogleFont"
                         Glyph="{StaticResource Add}"
                         Size="25" />
                 </Button.ImageSource>-->
-                <Button.Shadow>
-                    <Shadow Brush="dimgray" Opacity="1" />
-                </Button.Shadow>
-            </Button>
+                    <Button.Shadow>
+                        <Shadow Brush="dimgray" Opacity="1" />
+                    </Button.Shadow>
+                </Button>
+            </Grid>
         </Grid>
-    </Grid>
+    </Border>
 </ContentPage>

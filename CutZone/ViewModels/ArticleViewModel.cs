@@ -50,6 +50,7 @@ public partial class ArticleViewModel : Model
         Name = default;
         Modelo = default;
         Precio = 0;
+        Activo = false;
     }
 
     [RelayCommand]
@@ -60,6 +61,7 @@ public partial class ArticleViewModel : Model
         Name = _element.Name;
         Modelo = _element.Modelo;
         Precio = _element.Precio;
+        Activo = _element.Activo;
     }
 
 }
