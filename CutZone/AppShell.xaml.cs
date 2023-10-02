@@ -10,6 +10,7 @@ public partial class AppShell : Shell
 
         Routing.RegisterRoute(nameof(HomePage), typeof(HomePage));
         Routing.RegisterRoute(nameof(ArticlePage), typeof(ArticlePage));
+        Routing.RegisterRoute(nameof(SellsPage), typeof(SellsPage));
     }
     protected override void OnAppearing()
     {

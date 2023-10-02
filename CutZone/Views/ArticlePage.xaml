@@ -11,27 +11,24 @@
     x:DataType="{x:Type vm:ArticleViewModel}">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <!--<Style TargetType="Frame">
-                <Setter Property="CornerRadius" Value="25" />
-                <Setter Property="Padding" Value="0" />
-                <Setter Property="BackgroundColor" Value="Transparent" />
-            </Style>
-            <Style TargetType="controls:Icon">
-                <Setter Property="Margin" Value="15,0,5,0" />
-                <Setter Property="IconColor" Value="{StaticResource SadoraPrimaryColor}" />
-            </Style>-->
             <Style x:Key="GridControls" TargetType="Grid">
                 <Setter Property="ColumnDefinitions" Value="auto,*" />
+                <Setter Property="VerticalOptions" Value="Center" />
             </Style>
             <toolkit:SelectedItemEventArgsConverter x:Key="SelectedItemEventArgsConverter" />
-            <!--<Style x:Key="GridBody" TargetType="Grid">
-                <Setter Property="ColumnDefinitions" Value="{OnIdiom Phone='.1*,*,.1*', Tablet='.4*,*,.4*', Desktop='.8*,*,.8*'}" />
+            <Style x:Key="BorderField" TargetType="Border">
+                <Setter Property="BackgroundColor" Value="#f3f3f3" />
+                <Setter Property="HeightRequest" Value="70" />
+                <Setter Property="Stroke" Value="#5e5e5e" />
+                <Setter Property="StrokeThickness" Value="0.5" />
+                <Setter Property="StrokeShape" Value="RoundRectangle 10" />
+                <Setter Property="Padding" Value="20,0,0,0" />
             </Style>
             <Style TargetType="Entry">
                 <Setter Property="PlaceholderColor" Value="DarkGray" />
                 <Setter Property="FontSize" Value="Body" />
                 <Setter Property="TextColor" Value="{StaticResource SadoraPrimaryColor}" />
-            </Style>-->
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     <Border
@@ -121,47 +118,62 @@
                     Placeholder="Nombre"
                     Text="{Binding Name}" />-->
 
-                    <HorizontalStackLayout HorizontalOptions="End">
-                        <CheckBox HorizontalOptions="End" IsChecked="{Binding Activo}" />
-                        <Label
-                            FontAttributes="Bold"
-                            FontSize="Small"
-                            HorizontalOptions="Start"
-                            Text="Activo"
-                            VerticalOptions="Center" />
-                    </HorizontalStackLayout>
+                    <Border
+                        Padding="10"
+                        BackgroundColor="#f3f3f3"
+                        HeightRequest="50"
+                        HorizontalOptions="End"
+                        Stroke="#5e5e5e"
+                        StrokeShape="RoundRectangle 10"
+                        StrokeThickness="0.5">
 
-                    <Frame>
+                        <HorizontalStackLayout HorizontalOptions="End">
+                            <CheckBox BackgroundColor="Red" IsChecked="{Binding Activo}" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="Small"
+                                HorizontalOptions="Start"
+                                Text="Activo"
+                                VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                    </Border>
+
+                    <Border Style="{StaticResource BorderField}">
+
                         <Grid Style="{StaticResource GridControls}">
                             <controls:Icon IconKind="{StaticResource Inventory_2}" />
                             <Entry
                                 Grid.Column="1"
                                 Placeholder="Nombre"
+                                ReturnType="Next"
                                 Text="{Binding Name}" />
                         </Grid>
 
-                    </Frame>
+                    </Border>
 
 
-                    <Frame>
+                    <Border Style="{StaticResource BorderField}">
                         <Grid Style="{StaticResource GridControls}">
                             <controls:Icon IconKind="{StaticResource Mode}" />
                             <Entry
                                 Grid.Column="1"
                                 Placeholder="Modelo"
+                                ReturnType="Next"
                                 Text="{Binding Modelo}" />
                         </Grid>
-                    </Frame>
+                    </Border>
 
-                    <Frame>
+                    <Border Style="{StaticResource BorderField}">
                         <Grid Style="{StaticResource GridControls}">
                             <controls:Icon IconKind="{StaticResource Attach_money}" />
                             <Entry
                                 Grid.Column="1"
+                                Keyboard="Numeric"
                                 Placeholder="Precio"
+                                ReturnType="Next"
                                 Text="{Binding Precio}" />
                         </Grid>
-                    </Frame>
+                    </Border>
 
                     <Button
                         Command="{Binding SaveArticleCommand}"

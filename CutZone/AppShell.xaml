@@ -21,6 +21,10 @@
     <FlyoutItem FlyoutIcon="inventory.png">
         <ShellContent ContentTemplate="{DataTemplate views:ArticlePage}" />
     </FlyoutItem>
+    
+    <FlyoutItem FlyoutIcon="inventory.png">
+        <ShellContent ContentTemplate="{DataTemplate views:SellsPage}" />
+    </FlyoutItem>
 
 
     <Shell.FlyoutFooterTemplate>

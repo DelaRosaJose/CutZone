@@ -53,6 +53,7 @@
                     <Entry
                         Grid.Column="1"
                         Placeholder="Usuario"
+                        ReturnType="Next"
                         Text="{Binding Name}" />
                 </Grid>
             </Frame>
@@ -66,6 +67,7 @@
                         Grid.Column="1"
                         IsPassword="True"
                         Placeholder="Contraseña"
+                        ReturnType="Next"
                         Text="{Binding Password}" />
                 </Grid>
 

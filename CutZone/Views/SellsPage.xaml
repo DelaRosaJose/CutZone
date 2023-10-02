@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CutZone.Views.SellsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:CutZone.Controls"
+    Title="SellsPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="GridControls" TargetType="Grid">
+                <Setter Property="ColumnDefinitions" Value="auto,*" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="BorderField" TargetType="Border">
+                <Setter Property="BackgroundColor" Value="#f3f3f3" />
+                <Setter Property="HeightRequest" Value="70" />
+                <Setter Property="Stroke" Value="#5e5e5e" />
+                <Setter Property="StrokeThickness" Value="0.5" />
+                <Setter Property="StrokeShape" Value="RoundRectangle 10" />
+                <Setter Property="Padding" Value="20,0,0,0" />
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="DarkGray" />
+                <Setter Property="FontSize" Value="Body" />
+                <Setter Property="TextColor" Value="{StaticResource SadoraPrimaryColor}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+        <Border
+            Margin="0,5,0,0"
+            BackgroundColor="#fcfcfc"
+            Stroke="#e5e5e5"
+            StrokeThickness="0.5">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="5,0,0,0" />
+            </Border.StrokeShape>
+            <Grid ColumnDefinitions=".40*,*,.40*">
+                <VerticalStackLayout Grid.Column="1" Spacing="15">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="Title"
+                        HorizontalOptions="Center"
+                        Text="Ventas" />
+
+                    <Border Style="{StaticResource BorderField}">
+                        <Grid Style="{StaticResource GridControls}">
+                            <controls:Icon IconKind="{StaticResource Inventory}" />
+                            <Entry
+                                Grid.Column="1"
+                                Placeholder="Articulo"
+                                ReturnType="Next"
+                                Text="{Binding Name}" />
+                        </Grid>
+                    </Border>
+
+                    <Border Style="{StaticResource BorderField}">
+                        <Grid Style="{StaticResource GridControls}">
+                            <controls:Icon IconKind="{StaticResource Price_check}" />
+                            <Entry
+                                Grid.Column="1"
+                                Placeholder="Precio"
+                                ReturnType="Next"
+                                Text="{Binding Name}" />
+                        </Grid>
+                    </Border>
+
+                    <Border Style="{StaticResource BorderField}">
+                        <Grid Style="{StaticResource GridControls}">
+                            <controls:Icon IconKind="{StaticResource Person}" />
+                            <Entry
+                                Grid.Column="1"
+                                Placeholder="Cliente"
+                                ReturnType="Next"
+                                Text="{Binding Name}" />
+                        </Grid>
+                    </Border>
+
+                    <Button
+                        Command="{Binding SaveArticleCommand}"
+                        FontAttributes="Bold"
+                        FontSize="Subtitle"
+                        Text="Guardar">
+
+                        <Button.ImageSource>
+                            <FontImageSource FontFamily="GoogleFont" Glyph="{StaticResource Save}" />
+                        </Button.ImageSource>
+                    </Button>
+
+                </VerticalStackLayout>
+            </Grid>
+        </Border>
+    </ScrollView>
+</ContentPage>
