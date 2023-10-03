@@ -29,6 +29,9 @@
                 <Setter Property="FontSize" Value="Body" />
                 <Setter Property="TextColor" Value="{StaticResource SadoraPrimaryColor}" />
             </Style>
+            <Style TargetType="Button">
+                <Setter Property="Cursor:CursorBehavior.Cursor" Value="Hand"/>
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     <Border
@@ -145,7 +148,6 @@
                             <Entry
                                 Grid.Column="1"
                                 Placeholder="Nombre"
-                                ReturnType="Next"
                                 Text="{Binding Name}" />
                         </Grid>
 
@@ -158,7 +160,6 @@
                             <Entry
                                 Grid.Column="1"
                                 Placeholder="Modelo"
-                                ReturnType="Next"
                                 Text="{Binding Modelo}" />
                         </Grid>
                     </Border>
@@ -170,7 +171,6 @@
                                 Grid.Column="1"
                                 Keyboard="Numeric"
                                 Placeholder="Precio"
-                                ReturnType="Next"
                                 Text="{Binding Precio}" />
                         </Grid>
                     </Border>

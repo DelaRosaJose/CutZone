@@ -21,9 +21,9 @@
     <FlyoutItem FlyoutIcon="inventory.png">
         <ShellContent ContentTemplate="{DataTemplate views:ArticlePage}" />
     </FlyoutItem>
-    
-    <FlyoutItem FlyoutIcon="inventory.png">
-        <ShellContent ContentTemplate="{DataTemplate views:SellsPage}" />
+
+    <FlyoutItem FlyoutIcon="shoppingcart.png" ToolTipProperties.Text="Ventas">
+        <ShellContent ToolTipProperties.Text="Ventas" ContentTemplate="{DataTemplate views:SellsPage}" />
     </FlyoutItem>
 
 

@@ -49,9 +49,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Remove="Controls\CursorIcon.cs" />
-	  <Compile Remove="Handlers\CursorBehavior.cs" />
-	  <Compile Remove="Handlers\CursorExtension.cs" />
 	  <Compile Remove="ViewModels\BaseViewModel.cs" />
 	  <Compile Remove="ViewModels\Test.cs" />
 	</ItemGroup>
@@ -64,6 +61,8 @@
 	  <None Remove="Resources\Images\home.png" />
 	  <None Remove="Resources\Images\inventory.png" />
 	  <None Remove="Resources\Images\settings.png" />
+	  <None Remove="Resources\Images\shoppingbag.png" />
+	  <None Remove="Resources\Images\shoppingcart.png" />
 	</ItemGroup>
 
 	<ItemGroup>
