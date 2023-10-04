@@ -23,7 +23,7 @@
     </FlyoutItem>
 
     <FlyoutItem FlyoutIcon="shoppingcart.png" ToolTipProperties.Text="Ventas">
-        <ShellContent ToolTipProperties.Text="Ventas" ContentTemplate="{DataTemplate views:SellsPage}" />
+        <ShellContent ContentTemplate="{DataTemplate views:SellsPage}" ToolTipProperties.Text="Ventas" />
     </FlyoutItem>
 
 

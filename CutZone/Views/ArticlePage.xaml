@@ -30,7 +30,31 @@
                 <Setter Property="TextColor" Value="{StaticResource SadoraPrimaryColor}" />
             </Style>
             <Style TargetType="Button">
-                <Setter Property="Cursor:CursorBehavior.Cursor" Value="Hand"/>
+                <Setter Property="Cursor:CursorBehavior.Cursor" Value="Hand" />
+            </Style>
+            <Style x:Key="BorderScrollViewer" TargetType="Border">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="Transparent" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="PointerOver">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="#f2f2f2" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <!--<Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray200}}" />-->
+                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -38,13 +62,19 @@
         Margin="0,5,0,0"
         BackgroundColor="#fcfcfc"
         Stroke="#e5e5e5"
-        StrokeThickness="0.5">
+        StrokeThickness="1">
         <Border.StrokeShape>
             <RoundRectangle CornerRadius="5,0,0,0" />
         </Border.StrokeShape>
-        <Grid ColumnDefinitions=".45*,*">
-            <ScrollView BackgroundColor="#dcdcdc">
-                <VerticalStackLayout>
+        <Grid ColumnDefinitions=".35*,*">
+            <Border
+                BackgroundColor="#fcfcfc"
+                Stroke="#e5e5e5"
+                StrokeThickness="1">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="5,0,0,0" />
+                </Border.StrokeShape>
+                <ScrollView BackgroundColor="#fcfcfc">
                     <ListView x:Name="ListArticles" ItemsSource="{Binding Viewmodel}">
                         <ListView.Behaviors>
                             <toolkit:EventToCommandBehavior
@@ -52,62 +82,77 @@
                                 EventArgsConverter="{StaticResource SelectedItemEventArgsConverter}"
                                 EventName="ItemSelected" />
                         </ListView.Behaviors>
+                        <!--
+                            BackgroundColor="#f3f3f3"
+                            Stroke="#393939"
+                            StrokeThickness="0.5"
+                        -->
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <!--<Frame Margin="5" BorderColor="Black">-->
                                     <Border
                                         Margin="5"
-                                        BackgroundColor="#f3f3f3"
+                                        Cursor:CursorBehavior.Cursor="Hand"
                                         HeightRequest="80"
-                                        Stroke="#393939"
-                                        StrokeThickness="0.5">
-                                        <Border.StrokeShape>
-                                            <RoundRectangle CornerRadius="10" />
-                                        </Border.StrokeShape>
+                                        StrokeShape="RoundRectangle 10"
+                                        StrokeThickness="0"
+                                        Style="{StaticResource BorderScrollViewer}">
 
-                                        <VerticalStackLayout Margin="5,0,0,0" VerticalOptions="Center">
-                                            <!--<Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="Auto" />
-                                    </Grid.ColumnDefinitions>-->
-                                            <!--<Image
-                                        Grid.RowSpan="2"
-                                        Aspect="AspectFill"
-                                        HeightRequest="60"
-                                        Source="{Binding ImageUrl}"
-                                        WidthRequest="60" />-->
+                                        <Grid
+                                            Margin="10"
+                                            ColumnDefinitions="*, .4*"
+                                            RowDefinitions="*,*">
 
                                             <Label
-                                                Margin="10,0,0,0"
                                                 FontAttributes="Bold"
-                                                Text="{Binding Name}" />
-                                            <Label
-                                                FontAttributes="Italic"
-                                                Text="{Binding Modelo}"
+                                                FontSize="Title"
+                                                Text="{Binding Name}"
                                                 VerticalOptions="End" />
-                                            <Label FontAttributes="Bold" Text="{Binding Precio}" />
 
-                                        </VerticalStackLayout>
+                                            <Label
+                                                Grid.Row="1"
+                                                FontAttributes="Italic"
+                                                FontSize="Subtitle"
+                                                Text="{Binding Modelo}"
+                                                VerticalOptions="Start" />
+                                            <!-->
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span
+                                                        FontAttributes="Bold"
+                                                        FontSize="Medium"
+                                                        Text="Modelo: " />
+                                                    <Span FontSize="Micro" Text="{Binding Modelo}" />
+
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>-->
+
+                                            <CheckBox
+                                                Grid.Column="1"
+                                                IsChecked="{Binding Activo}"
+                                                IsEnabled="False" />
+
+                                            <Label
+                                                Grid.Row="1"
+                                                Grid.Column="1"
+                                                FontAttributes="Bold"
+                                                FontSize="Subtitle"
+                                                Text="{Binding Path=Precio, StringFormat='$ {0}'}" />
+
+                                        </Grid>
+
                                     </Border>
-                                    <!--</Frame>-->
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
-                        <!--<ListView.ItemTemplate>
-                        <DataTemplate>
-                            <Label Text="{Binding Name}" />
-                        </DataTemplate>
-                    </ListView.ItemTemplate>-->
                     </ListView>
-                </VerticalStackLayout>
-            </ScrollView>
-
-            <Grid Grid.Column="1" ColumnDefinitions=".2*,.60*,.2*">
+                </ScrollView>
+            </Border>
+            <Grid
+                Grid.Column="1"
+                BackgroundColor="#f9f9f9"
+                ColumnDefinitions=".2*,.60*,.2*">
                 <VerticalStackLayout Grid.Column="1" Spacing="15">
                     <Label
                         Margin="20"
@@ -115,11 +160,6 @@
                         FontSize="Title"
                         HorizontalOptions="Center"
                         Text="Articulos" />
-
-                    <!--<Entry
-                    BackgroundColor="LightGray"
-                    Placeholder="Nombre"
-                    Text="{Binding Name}" />-->
 
                     <Border
                         Padding="10"
@@ -131,7 +171,10 @@
                         StrokeThickness="0.5">
 
                         <HorizontalStackLayout HorizontalOptions="End">
-                            <CheckBox BackgroundColor="Red" IsChecked="{Binding Activo}" />
+                            <CheckBox
+                                Cursor:CursorBehavior.Cursor="Hand"
+                                BackgroundColor="Red"
+                                IsChecked="{Binding Activo}" />
                             <Label
                                 FontAttributes="Bold"
                                 FontSize="Small"
@@ -203,12 +246,7 @@
                     TextColor="#2c313c"
                     ToolTipProperties.Text="Limpiar Campos"
                     VerticalOptions="End">
-                    <!--<Button.ImageSource>
-                    <FontImageSource
-                        FontFamily="GoogleFont"
-                        Glyph="{StaticResource Add}"
-                        Size="25" />
-                </Button.ImageSource>-->
+
                     <Button.Shadow>
                         <Shadow Brush="dimgray" Opacity="1" />
                     </Button.Shadow>

@@ -3,6 +3,7 @@
     x:Class="CutZone.Views.LoginPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Cursor="clr-namespace:CutZone.Handlers"
     xmlns:cmtk="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
     xmlns:controls="clr-namespace:CutZone.Controls"
     xmlns:models="clr-namespace:CutZone.ViewModels"
@@ -30,6 +31,9 @@
                 <Setter Property="PlaceholderColor" Value="DarkGray" />
                 <Setter Property="FontSize" Value="Body" />
                 <Setter Property="TextColor" Value="{StaticResource SadoraPrimaryColor}" />
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="Cursor:CursorBehavior.Cursor" Value="Hand"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
