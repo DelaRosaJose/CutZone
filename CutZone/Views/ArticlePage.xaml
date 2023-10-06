@@ -46,12 +46,6 @@
                                     <Setter Property="BackgroundColor" Value="#f2f2f2" />
                                 </VisualState.Setters>
                             </VisualState>
-                            <VisualState x:Name="Disabled">
-                                <VisualState.Setters>
-                                    <!--<Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray200}}" />-->
-                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}" />
-                                </VisualState.Setters>
-                            </VisualState>
                         </VisualStateGroup>
                     </VisualStateGroupList>
                 </Setter>
@@ -62,104 +56,161 @@
         Margin="0,5,0,0"
         BackgroundColor="#fcfcfc"
         Stroke="#e5e5e5"
+        StrokeShape="RoundRectangle 5,0,0,0"
         StrokeThickness="1">
-        <Border.StrokeShape>
-            <RoundRectangle CornerRadius="5,0,0,0" />
-        </Border.StrokeShape>
         <Grid ColumnDefinitions=".35*,*">
             <Border
                 BackgroundColor="#fcfcfc"
                 Stroke="#e5e5e5"
+                StrokeShape="RoundRectangle 5,0,0,0"
                 StrokeThickness="1">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="5,0,0,0" />
-                </Border.StrokeShape>
-                <ScrollView BackgroundColor="#fcfcfc">
-                    <ListView x:Name="ListArticles" ItemsSource="{Binding Viewmodel}">
-                        <ListView.Behaviors>
-                            <toolkit:EventToCommandBehavior
-                                Command="{Binding SelectedArticleCommand}"
-                                EventArgsConverter="{StaticResource SelectedItemEventArgsConverter}"
-                                EventName="ItemSelected" />
-                        </ListView.Behaviors>
-                        <!--
-                            BackgroundColor="#f3f3f3"
-                            Stroke="#393939"
-                            StrokeThickness="0.5"
-                        -->
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <Border
-                                        Margin="5"
-                                        Cursor:CursorBehavior.Cursor="Hand"
-                                        HeightRequest="80"
-                                        StrokeShape="RoundRectangle 10"
-                                        StrokeThickness="0"
-                                        Style="{StaticResource BorderScrollViewer}">
+                <Grid RowDefinitions="64,*">
+                    <Label
+                        Margin="20,0"
+                        FontAttributes="Bold"
+                        FontSize="Small"
+                        Text="Articulos"
+                        VerticalOptions="Center" />
+
+                    <Button
+                        Margin="10"
+                        Padding="0"
+                        BackgroundColor="Transparent"
+                        BorderWidth="0"
+                        Command="{Binding ClearSelectedArticleCommand}"
+                        FontSize="Subtitle"
+                        HorizontalOptions="End"
+                        Text="+"
+                        TextColor="#2c313c"
+                        ToolTipProperties.Text="Limpiar Campos"
+                        VerticalOptions="Center"
+                        WidthRequest="55">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroupList>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="Transparent" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name="PointerOver">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="#ededed" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateGroupList>
+                        </VisualStateManager.VisualStateGroups>
+                    </Button>
+
+                    <Line
+                        HorizontalOptions="Center"
+                        Stroke="LightGray"
+                        StrokeThickness="0.8"
+                        VerticalOptions="End"
+                        X1="200" />
+                    <ScrollView Grid.Row="1" BackgroundColor="#fcfcfc">
+                        <ListView
+                            x:Name="ListArticles"
+                            ItemsSource="{Binding Viewmodel}"
+                            SeparatorColor="Red"
+                            SeparatorVisibility="Default">
+                            <ListView.Behaviors>
+                                <toolkit:EventToCommandBehavior
+                                    Command="{Binding SelectedArticleCommand}"
+                                    EventArgsConverter="{StaticResource SelectedItemEventArgsConverter}"
+                                    EventName="ItemSelected" />
+                            </ListView.Behaviors>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <!--<Border
+                                            Margin="5"
+                                            Cursor:CursorBehavior.Cursor="Hand"
+                                            HeightRequest="80"
+                                            StrokeShape="RoundRectangle 10"
+                                            StrokeThickness="0">-->
 
                                         <Grid
-                                            Margin="10"
+                                            Padding="20,13"
+                                            Cursor:CursorBehavior.Cursor="Hand"
                                             ColumnDefinitions="*, .4*"
                                             RowDefinitions="*,*">
 
                                             <Label
                                                 FontAttributes="Bold"
-                                                FontSize="Title"
+                                                FontSize="Micro"
                                                 Text="{Binding Name}"
                                                 VerticalOptions="End" />
 
-                                            <Label
-                                                Grid.Row="1"
-                                                FontAttributes="Italic"
-                                                FontSize="Subtitle"
-                                                Text="{Binding Modelo}"
-                                                VerticalOptions="Start" />
-                                            <!-->
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span
-                                                        FontAttributes="Bold"
-                                                        FontSize="Medium"
-                                                        Text="Modelo: " />
-                                                    <Span FontSize="Micro" Text="{Binding Modelo}" />
+                                            <HorizontalStackLayout Grid.Row="1">
+                                                <controls:Icon
+                                                    IconColor="#888888"
+                                                    IconKind="{StaticResource Mode}"
+                                                    IconSize="15" />
+                                                <Label
+                                                    Margin="5,0"
+                                                    FontSize="Default"
+                                                    Text="{Binding Modelo}"
+                                                    TextColor="#8c8c8c"
+                                                    VerticalOptions="Center" />
+                                            </HorizontalStackLayout>
 
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>-->
-
-                                            <CheckBox
+                                            <controls:Icon
                                                 Grid.Column="1"
-                                                IsChecked="{Binding Activo}"
-                                                IsEnabled="False" />
+                                                HorizontalOptions="End"
+                                                IconColor="#3c7d3c"
+                                                IconKind="{StaticResource Toggle_on}">
+                                                <controls:Icon.Style>
+                                                    <Style TargetType="controls:Icon">
+                                                        <Style.Triggers>
+                                                            <DataTrigger
+                                                                Binding="{Binding Activo}"
+                                                                TargetType="controls:Icon"
+                                                                Value="False">
+                                                                <Setter Property="IconKind" Value="{StaticResource Toggle_off}" />
+                                                                <Setter Property="IconColor" Value="#934c56" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </controls:Icon.Style>
+                                            </controls:Icon>
 
                                             <Label
                                                 Grid.Row="1"
                                                 Grid.Column="1"
                                                 FontAttributes="Bold"
-                                                FontSize="Subtitle"
-                                                Text="{Binding Path=Precio, StringFormat='$ {0}'}" />
+                                                FontSize="Micro"
+                                                HorizontalOptions="End"
+                                                Text="{Binding Path=Precio, StringFormat='$ {0}'}"
+                                                TextColor="#2c313c"
+                                                VerticalOptions="End" />
 
                                         </Grid>
 
-                                    </Border>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </ScrollView>
+                                        <!--</Border>-->
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollView>
+                </Grid>
             </Border>
+
             <Grid
                 Grid.Column="1"
                 BackgroundColor="#f9f9f9"
                 ColumnDefinitions=".2*,.60*,.2*">
-                <VerticalStackLayout Grid.Column="1" Spacing="15">
-                    <Label
+                <VerticalStackLayout
+                    Grid.Column="1"
+                    Spacing="15"
+                    TranslationY="54">
+                    <!--<Label
                         Margin="20"
                         FontAttributes="Bold"
                         FontSize="Title"
                         HorizontalOptions="Center"
-                        Text="Articulos" />
+                        Text="Articulos" />-->
 
                     <Border
                         Padding="10"
@@ -232,7 +283,7 @@
                 </VerticalStackLayout>
 
 
-                <Button
+                <!--<Button
                     Grid.Column="2"
                     Margin="25"
                     Padding="0"
@@ -250,8 +301,9 @@
                     <Button.Shadow>
                         <Shadow Brush="dimgray" Opacity="1" />
                     </Button.Shadow>
-                </Button>
+                </Button>-->
             </Grid>
+
         </Grid>
     </Border>
 </ContentPage>
