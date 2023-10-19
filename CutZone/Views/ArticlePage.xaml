@@ -77,6 +77,7 @@
                         Padding="0"
                         BackgroundColor="Transparent"
                         BorderWidth="0"
+                        Clicked="Button_Clicked"
                         Command="{Binding ClearSelectedArticleCommand}"
                         FontSize="Subtitle"
                         HorizontalOptions="End"
@@ -110,11 +111,7 @@
                         VerticalOptions="End"
                         X1="200" />
                     <ScrollView Grid.Row="1" BackgroundColor="#fcfcfc">
-                        <ListView
-                            x:Name="ListArticles"
-                            ItemsSource="{Binding Viewmodel}"
-                            SeparatorColor="Red"
-                            SeparatorVisibility="Default">
+                        <ListView x:Name="ListArticles" ItemsSource="{Binding Viewmodel}">
                             <ListView.Behaviors>
                                 <toolkit:EventToCommandBehavior
                                     Command="{Binding SelectedArticleCommand}"
@@ -211,7 +208,24 @@
                         FontSize="Title"
                         HorizontalOptions="Center"
                         Text="Articulos" />-->
-
+                    <Border HorizontalOptions="End" StrokeShape="RoundRectangle 10">
+                        <HorizontalStackLayout>
+                            <Label
+                                x:Name="LabelState"
+                                Margin="5,0,0,0"
+                                FontAttributes="Bold"
+                                FontSize="Small"
+                                IsVisible="False"
+                                Text="Modo Agregar"
+                                VerticalOptions="Center" />
+                            <controls:Icon
+                                x:Name="IconState"
+                                IconColor="#934c56"
+                                IconKind="{StaticResource Add}"
+                                IconSize="35"
+                                ToolTipProperties.Text="Modo Agregar" />
+                        </HorizontalStackLayout>
+                    </Border>
                     <Border
                         Padding="10"
                         BackgroundColor="#f3f3f3"
