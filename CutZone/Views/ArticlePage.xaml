@@ -77,7 +77,7 @@
                         Padding="0"
                         BackgroundColor="Transparent"
                         BorderWidth="0"
-                        Clicked="Button_Clicked"
+                        Clicked="AddButton_Clicked"
                         Command="{Binding ClearSelectedArticleCommand}"
                         FontSize="Subtitle"
                         HorizontalOptions="End"
@@ -111,7 +111,10 @@
                         VerticalOptions="End"
                         X1="200" />
                     <ScrollView Grid.Row="1" BackgroundColor="#fcfcfc">
-                        <ListView x:Name="ListArticles" ItemsSource="{Binding Viewmodel}">
+                        <ListView
+                            x:Name="ListArticles"
+                            ItemSelected="ListArticles_ItemSelected"
+                            ItemsSource="{Binding Viewmodel}">
                             <ListView.Behaviors>
                                 <toolkit:EventToCommandBehavior
                                     Command="{Binding SelectedArticleCommand}"
@@ -121,12 +124,6 @@
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
-                                        <!--<Border
-                                            Margin="5"
-                                            Cursor:CursorBehavior.Cursor="Hand"
-                                            HeightRequest="80"
-                                            StrokeShape="RoundRectangle 10"
-                                            StrokeThickness="0">-->
 
                                         <Grid
                                             Padding="20,13"
@@ -185,7 +182,6 @@
 
                                         </Grid>
 
-                                        <!--</Border>-->
                                     </ViewCell>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
@@ -202,29 +198,25 @@
                     Grid.Column="1"
                     Spacing="15"
                     TranslationY="54">
-                    <!--<Label
-                        Margin="20"
-                        FontAttributes="Bold"
-                        FontSize="Title"
-                        HorizontalOptions="Center"
-                        Text="Articulos" />-->
                     <Border HorizontalOptions="End" StrokeShape="RoundRectangle 10">
-                        <HorizontalStackLayout>
+                        <Grid ColumnDefinitions="*,auto">
                             <Label
                                 x:Name="LabelState"
                                 Margin="5,0,0,0"
                                 FontAttributes="Bold"
                                 FontSize="Small"
-                                IsVisible="False"
+                                IsVisible="false"
                                 Text="Modo Agregar"
                                 VerticalOptions="Center" />
                             <controls:Icon
                                 x:Name="IconState"
+                                Grid.Column="1"
+                                BackgroundColor="#f9f9f9"
                                 IconColor="#934c56"
                                 IconKind="{StaticResource Add}"
                                 IconSize="35"
                                 ToolTipProperties.Text="Modo Agregar" />
-                        </HorizontalStackLayout>
+                        </Grid>
                     </Border>
                     <Border
                         Padding="10"

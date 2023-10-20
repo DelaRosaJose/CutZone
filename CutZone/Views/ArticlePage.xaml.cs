@@ -8,33 +8,23 @@ public partial class ArticlePage : ContentPage
     {
         BindingContext = vm;
         InitializeComponent();
-        //ListArticles.ItemsSource = vm.Viewmodel;
-
     }
 
-    private async void Button_Clicked(object sender, EventArgs e)
+    private void AddButton_Clicked(object sender, EventArgs e) => WindowsModeAnimation("\ue145", "Modo Agregar");
+
+    private void ListArticles_ItemSelected(object sender, SelectedItemChangedEventArgs e) => WindowsModeAnimation("\ue3c9","Modo Editar");
+  
+
+    async void WindowsModeAnimation(string IconKind, string Modo) 
     {
-
-
-        IconState.IconKind = 
-        LabelState.IsVisible= true;
-        await LabelState.ScaleTo(1, 3000, Easing.CubicInOut);
-        LabelState.Scale = 0.5;
+        IconState.IconKind = IconKind;
+        ToolTipProperties.SetText(IconState, Modo);
+        LabelState.Text = Modo;
+        LabelState.IsVisible = true;
+        LabelState.TranslationX = 100;
+        await LabelState.TranslateTo(0, 0, 3000);
+        await Task.Delay(1000);
         LabelState.IsVisible = false;
-
-
-
-
-        //State.TranslateTo()
-        //await State.TranslateTo(15,15,2000,Easing.Linear);
-
-        //await to
-        //await State.TranslateTo(-100, -100, 1000);
-        //State.AnchorX = 150;
-
-        //var animation = new Animation(x => { this.State.AnchorX = x; }, 0, 60);
-
-        //animation.Commit(this, "OpenFlyout", length: 250);
-
     }
+
 }
