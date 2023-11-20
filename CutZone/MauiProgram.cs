@@ -47,13 +47,13 @@ public static class MauiProgram
 
 
         #region ViewModels DI
-        builder.Services.AddSingleton<LoginViewModel>();
+        builder.Services.AddTransient<LoginViewModel>();
         builder.Services.AddSingleton<ArticleViewModel>();
         #endregion
 
 
         #region Views DI
-        builder.Services.AddSingleton<LoginPage>();
+        builder.Services.AddTransient<LoginPage>();
         builder.Services.AddSingleton<ArticlePage>();
 
         #endregion

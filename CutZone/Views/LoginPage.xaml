@@ -33,7 +33,7 @@
                 <Setter Property="TextColor" Value="{StaticResource SadoraPrimaryColor}" />
             </Style>
             <Style TargetType="Button">
-                <Setter Property="Cursor:CursorBehavior.Cursor" Value="Hand"/>
+                <Setter Property="Cursor:CursorBehavior.Cursor" Value="Hand" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -50,30 +50,27 @@
             Text="CZ"
             WidthRequest="150" />
 
+
+
         <Grid Style="{StaticResource GridBody}">
-            <Frame Grid.Column="1">
-                <Grid Style="{StaticResource GridControls}">
-                    <controls:Icon />
-                    <Entry
-                        Grid.Column="1"
-                        Placeholder="Usuario"
-                        Text="{Binding Name}" />
-                </Grid>
-            </Frame>
+            <controls:FloatingEntry
+                Title="Usuario"
+                Grid.Column="1"
+                FocusActive_Border="True"
+                StrokeFocusActive_Border="DarkGray"
+                StrokeShape_Border="25"
+                Text="{Binding Name}" />
         </Grid>
 
         <Grid Style="{StaticResource GridBody}">
-            <Frame Grid.Column="1">
-                <Grid Style="{StaticResource GridControls}">
-                    <controls:Icon IconKind="{StaticResource Lock}" />
-                    <Entry
-                        Grid.Column="1"
-                        IsPassword="True"
-                        Placeholder="Contraseña"
-                        Text="{Binding Password}" />
-                </Grid>
-
-            </Frame>
+            <controls:FloatingEntry
+                Title="Contraseña"
+                Grid.Column="1"
+                FocusActive_Border="True"
+                IsPassword="True"
+                StrokeFocusActive_Border="DarkGray"
+                StrokeShape_Border="25"
+                Text="{Binding Password}" />
         </Grid>
 
         <Button
