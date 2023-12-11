@@ -9,7 +9,6 @@
     xmlns:models="clr-namespace:CutZone.ViewModels"
     x:DataType="{x:Type models:LoginViewModel}"
     Shell.FlyoutBehavior="Disabled">
-
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Frame">
@@ -56,9 +55,9 @@
             <controls:FloatingEntry
                 Title="Usuario"
                 Grid.Column="1"
-                FocusActive_Border="True"
-                StrokeFocusActive_Border="DarkGray"
-                StrokeShape_Border="25"
+                HeightRequest="48"
+                Size_Icon="30"
+                StrokeThickness_Border="0"
                 Text="{Binding Name}" />
         </Grid>
 
@@ -66,10 +65,11 @@
             <controls:FloatingEntry
                 Title="Contraseña"
                 Grid.Column="1"
-                FocusActive_Border="True"
+                HeightRequest="45"
+                Icon_Icon="xf042"
                 IsPassword="True"
-                StrokeFocusActive_Border="DarkGray"
-                StrokeShape_Border="25"
+                Size_Icon="30"
+                StrokeThickness_Border="0"
                 Text="{Binding Password}" />
         </Grid>
 

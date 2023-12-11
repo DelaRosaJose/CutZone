@@ -2,8 +2,8 @@
 <ContentPage
     x:Class="CutZone.Views.SellsPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:Cursor="clr-namespace:CutZone.Handlers"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Cursor="clr-namespace:CutZone.Handlers"
     xmlns:controls="clr-namespace:CutZone.Controls"
     Title="SellsPage">
     <ContentPage.Resources>
@@ -26,7 +26,7 @@
                 <Setter Property="TextColor" Value="{StaticResource SadoraPrimaryColor}" />
             </Style>
             <Style TargetType="Button">
-                <Setter Property="Cursor:CursorBehavior.Cursor" Value="Hand"/>
+                <Setter Property="Cursor:CursorBehavior.Cursor" Value="Hand" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>

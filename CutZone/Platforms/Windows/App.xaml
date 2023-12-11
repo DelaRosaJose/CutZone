@@ -5,15 +5,37 @@
     xmlns:local="using:CutZone.WinUI"
     xmlns:maui="using:Microsoft.Maui">
     <Application.Resources>
-        <ResourceDictionary>
-            <SolidColorBrush x:Key="WindowCaptionBackground">#f3f3f3</SolidColorBrush>
+        <!--<ResourceDictionary>
+        -->
+        <!--<SolidColorBrush x:Key="WindowCaptionBackground">#f3f3f3</SolidColorBrush>
             <SolidColorBrush x:Key="WindowCaptionBackgroundDisabled">#f3f3f3</SolidColorBrush>
             <SolidColorBrush x:Key="WindowCaptionForeground">#000</SolidColorBrush>
-            <SolidColorBrush x:Key="WindowCaptionForegroundDisabled">#000</SolidColorBrush>
+            <SolidColorBrush x:Key="WindowCaptionForegroundDisabled">#000</SolidColorBrush>-->
+        <!--
             <SolidColorBrush x:Key="ListViewItemBackgroundSelected">#e8e8e8</SolidColorBrush>
             <SolidColorBrush x:Key="ListViewItemBackgroundPointerOver">#f2f2f2</SolidColorBrush>
             <SolidColorBrush x:Key="ListViewItemBackgroundSelectedPointerOver">#dedede</SolidColorBrush>
             <SolidColorBrush x:Key="ListViewItemBackgroundSelectedPressed">#d4d4d4</SolidColorBrush>
-        </ResourceDictionary>
+        </ResourceDictionary>-->
+        <DataTemplate x:Key="MauiAppTitleBarTemplate">
+            <!--<Border Style="{StaticResource TitleBarStyle}" VerticalAlignment="Stretch"/>-->
+            <Grid
+                Height="32"
+                VerticalAlignment="Stretch"
+                Background="#f3f3f3"
+                Canvas.ZIndex="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="32" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Image Margin="2" Source="haircuttool.png" />
+                <TextBlock
+                    Grid.Column="1"
+                    Margin="10,0,0,2"
+                    VerticalAlignment="Center"
+                    Text="Cutzone"
+                    TextTrimming="CharacterEllipsis" />
+            </Grid>
+        </DataTemplate>
     </Application.Resources>
 </maui:MauiWinUIApplication>

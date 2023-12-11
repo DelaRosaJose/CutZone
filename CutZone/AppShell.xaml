@@ -4,25 +4,55 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:CutZone.Controls"
-    xmlns:views="clr-namespace:CutZone.Views">
-
+    xmlns:views="clr-namespace:CutZone.Views"
+    FlyoutBackgroundColor="#f3f3f3"
+    FlyoutBehavior="Locked"
+    FlyoutIsPresented="False"
+    FlyoutWidth="59">
 
     <ShellContent ContentTemplate="{DataTemplate views:LoginPage}" FlyoutItemIsVisible="False" />
 
 
     <!--  Desktop/Tablet  -->
-    <FlyoutItem
-        CompressedLayout.IsHeadless="True"
-        FlyoutIcon="home.png"
-        ToolTipProperties.Text="Inicio">
-        <ShellContent ContentTemplate="{DataTemplate views:HomePage}" />
+    <FlyoutItem ToolTipProperties.Text="Inicio">
+
+        <FlyoutItem.Icon>
+            <FontImageSource
+                FontFamily="GoogleFontOutline"
+                Glyph="{StaticResource OutlineHome}"
+                Size="10000"
+                Color="#535353" />
+        </FlyoutItem.Icon>
+
+        <ShellContent
+            Title="Home page"
+            ContentTemplate="{DataTemplate views:HomePage}"
+            Route="HomePage" />
     </FlyoutItem>
 
-    <FlyoutItem FlyoutIcon="inventory.png">
+    <FlyoutItem>
+
+        <FlyoutItem.Icon>
+            <FontImageSource
+                FontFamily="GoogleFontOutline"
+                Glyph="{StaticResource OutlineInventory_2}"
+                Size="10000"
+                Color="#535353" />
+        </FlyoutItem.Icon>
+
         <ShellContent ContentTemplate="{DataTemplate views:ArticlePage}" />
     </FlyoutItem>
 
-    <FlyoutItem FlyoutIcon="shoppingcart.png" ToolTipProperties.Text="Ventas">
+    <FlyoutItem ToolTipProperties.Text="Ventas">
+
+        <FlyoutItem.Icon>
+            <FontImageSource
+                FontFamily="GoogleFontOutline"
+                Glyph="{StaticResource OutlineShopping_cart}"
+                Size="10000"
+                Color="#535353" />
+        </FlyoutItem.Icon>
+
         <ShellContent ContentTemplate="{DataTemplate views:SellsPage}" ToolTipProperties.Text="Ventas" />
     </FlyoutItem>
 
@@ -47,8 +77,15 @@
                     Grid.Row="2"
                     HeightRequest="20"
                     HorizontalOptions="Center"
-                    Source="settings.png"
-                    VerticalOptions="Center" />
+                    VerticalOptions="Center">
+                    <Image.Source>
+                        <FontImageSource
+                            FontFamily="GoogleFontOutline"
+                            Glyph="{StaticResource Settings}"
+                            Size="10000"
+                            Color="#535353" />
+                    </Image.Source>
+                </Image>
 
 
             </Grid>

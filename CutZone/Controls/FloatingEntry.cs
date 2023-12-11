@@ -65,7 +65,6 @@ public class FloatingEntry : ContentView
 
         #region Field SetBindings
         Field.SetBinding(Entry.TextProperty, new Binding(nameof(Text), BindingMode.TwoWay, source: this));
-        Field.SetBinding(Entry.IsPasswordProperty, new Binding(nameof(IsPassword), BindingMode.TwoWay, source: this));
         //Field.SetBinding(Entry.KeyboardProperty, new Binding(nameof(KeyBoard), BindingMode.TwoWay, source: this));
         #endregion
         #region Label SetBindings
@@ -76,6 +75,10 @@ public class FloatingEntry : ContentView
         borderEntry.SetBinding(Border.StrokeProperty, new Binding(nameof(Stroke_Border), BindingMode.TwoWay, source: this));
         borderEntry.SetBinding(Border.StrokeThicknessProperty, new Binding(nameof(StrokeThickness_Border), BindingMode.TwoWay, source: this));
         borderEntry.SetBinding(Border.PaddingProperty, new Binding(nameof(Padding_Border), BindingMode.TwoWay, source: this));
+        #endregion
+        #region Icon SetBindings
+        IconFloatingEntry.SetBinding(Icon.IconSizeProperty, new Binding(nameof(Size_Icon), BindingMode.TwoWay, source: this));
+        IconFloatingEntry.SetBinding(Icon.IconKindProperty, new Binding(nameof(Icon_Icon), BindingMode.TwoWay, source: this));
         #endregion
 
         #region SettingGridsColumns
@@ -99,6 +102,24 @@ public class FloatingEntry : ContentView
     }
 
 
+
+    #region Entry Properties
+
+    public double Size_Icon
+    {
+        get => (double)GetValue(Size_IconProperty);
+        set => SetValue(Size_IconProperty, value);
+    }
+    public string Icon_Icon
+    {
+        get => (string)GetValue(Icon_IconProperty);
+        set => SetValue(Icon_IconProperty, value);
+    }
+
+    public static readonly BindableProperty Size_IconProperty = BindableProperty.Create(nameof(Size_Icon), typeof(double), typeof(FloatingEntry), 25.0, BindingMode.TwoWay);
+    public static readonly BindableProperty Icon_IconProperty = BindableProperty.Create(nameof(Icon_Icon), typeof(string), typeof(FloatingEntry), default, BindingMode.TwoWay);
+
+    #endregion
 
     #region Entry Properties
 
@@ -270,10 +291,10 @@ public class FloatingEntry : ContentView
 
     async Task TransitionToTitle()
     {
-        var t1 = LabelTitle.TranslateTo(10, _topMargin, 100);
-        var t2 = SizeTo(_titleFontSize);
-        await Task.WhenAll(t1, t2);
-        Field.Focus();
+            var t1 = LabelTitle.TranslateTo(10, _topMargin, 100);
+            var t2 = SizeTo(_titleFontSize);
+            await Task.WhenAll(t1, t2);
+            Field.Focus();
     }
     async Task TransitionToPlaceholder(bool animated)
     {
