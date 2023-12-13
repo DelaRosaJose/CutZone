@@ -66,7 +66,7 @@
                 Title="Contraseña"
                 Grid.Column="1"
                 HeightRequest="45"
-                Icon_Icon="xf042"
+                Icon_Icon="{StaticResource Password}"
                 IsPassword="True"
                 Size_Icon="30"
                 StrokeThickness_Border="0"

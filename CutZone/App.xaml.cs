@@ -8,7 +8,7 @@ namespace CutZone;
 public partial class App : Application
 {
 
-    public App ( LoginViewModel _loginViewModel, SQLiteRepository sqliteRepository )
+    public App (SQLiteRepository sqliteRepository )
     {
         InitializeComponent();
 
@@ -30,6 +30,6 @@ public partial class App : Application
             });
 #endif
 
-        MainPage = new AppShell();
+        MainPage = new AppShellLogin();
     }
 }

@@ -14,6 +14,7 @@
             <Style x:Key="GridControls" TargetType="Grid">
                 <Setter Property="ColumnDefinitions" Value="auto,*" />
                 <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="ColumnSpacing" Value="10" />
             </Style>
             <toolkit:SelectedItemEventArgsConverter x:Key="SelectedItemEventArgsConverter" />
             <Style x:Key="BorderField" TargetType="Border">
@@ -241,48 +242,67 @@
                         </HorizontalStackLayout>
                     </Border>
 
-                    <Border Style="{StaticResource BorderField}">
+                    <Grid Style="{StaticResource GridControls}">
+                        <controls:Icon
+                            IconColor="#013558"
+                            IconKind="{StaticResource Inventory_2}"
+                            IconSize="30" />
+                        <Entry
+                            Grid.Column="1"
+                            HeightRequest="70"
+                            Placeholder="Nombre"
+                            Text="{Binding Name}" />
+                    </Grid>
 
-                        <Grid Style="{StaticResource GridControls}">
-                            <controls:Icon IconKind="{StaticResource Inventory_2}" />
-                            <Entry
-                                Grid.Column="1"
-                                Placeholder="Nombre"
-                                Text="{Binding Name}" />
-                        </Grid>
 
-                    </Border>
+                    <!--<Border Style="{StaticResource BorderField}">-->
+                    <Grid Style="{StaticResource GridControls}">
+                        <controls:Icon
+                            IconColor="#a3545f"
+                            IconKind="{StaticResource Mode}"
+                            IconSize="30" />
+                        <Entry
+                            Grid.Column="1"
+                            HeightRequest="70"
+                            Placeholder="Modelo"
+                            Text="{Binding Modelo}" />
+                    </Grid>
+                    <!--</Border>-->
 
-
-                    <Border Style="{StaticResource BorderField}">
-                        <Grid Style="{StaticResource GridControls}">
-                            <controls:Icon IconKind="{StaticResource Mode}" />
-                            <Entry
-                                Grid.Column="1"
-                                Placeholder="Modelo"
-                                Text="{Binding Modelo}" />
-                        </Grid>
-                    </Border>
-
-                    <Border Style="{StaticResource BorderField}">
-                        <Grid Style="{StaticResource GridControls}">
-                            <controls:Icon IconKind="{StaticResource Attach_money}" />
-                            <Entry
-                                Grid.Column="1"
-                                Keyboard="Numeric"
-                                Placeholder="Precio"
-                                Text="{Binding Precio}" />
-                        </Grid>
-                    </Border>
+                    <!--<Border Style="{StaticResource BorderField}">-->
+                    <Grid Style="{StaticResource GridControls}">
+                        <controls:Icon
+                            IconColor="#3c7d3c"
+                            IconKind="{StaticResource Attach_money}"
+                            IconSize="30" />
+                        <Entry
+                            Grid.Column="1"
+                            HeightRequest="70"
+                            Keyboard="Numeric"
+                            Placeholder="Precio"
+                            Text="{Binding Precio}" />
+                    </Grid>
+                    <!--</Border>-->
 
                     <Button
+                        Padding="50,0"
+                        TranslationY="20"
+                        BackgroundColor="#3c7d3c"
+                        BorderWidth="0"
                         Command="{Binding SaveArticleCommand}"
-                        FontAttributes="Bold"
+                        CornerRadius="5"
                         FontSize="Subtitle"
-                        Text="Guardar">
+                        HeightRequest="60"
+                        HorizontalOptions="Center"
+                        Text="Guardar"
+                        TextColor="#f3f3f3">
 
                         <Button.ImageSource>
-                            <FontImageSource FontFamily="GoogleFont" Glyph="{StaticResource Save}" />
+                            <FontImageSource
+                                FontFamily="GoogleFont"
+                                Glyph="{StaticResource Save}"
+                                Color="#f3f3f3" />
+                            <!--  Color="#013558"  -->
                         </Button.ImageSource>
                     </Button>
 

@@ -65,6 +65,8 @@ public class FloatingEntry : ContentView
 
         #region Field SetBindings
         Field.SetBinding(Entry.TextProperty, new Binding(nameof(Text), BindingMode.TwoWay, source: this));
+        Field.SetBinding(Entry.IsPasswordProperty, new Binding(nameof(IsPassword), BindingMode.TwoWay, source: this));
+        Field.SetBinding(Entry.BackgroundColorProperty, new Binding(nameof(BackgroundColor_Entry), BindingMode.TwoWay, source: this));
         //Field.SetBinding(Entry.KeyboardProperty, new Binding(nameof(KeyBoard), BindingMode.TwoWay, source: this));
         #endregion
         #region Label SetBindings
@@ -103,7 +105,7 @@ public class FloatingEntry : ContentView
 
 
 
-    #region Entry Properties
+    #region Icon Properties
 
     public double Size_Icon
     {
@@ -133,6 +135,11 @@ public class FloatingEntry : ContentView
         get => (bool)GetValue(IsPasswordProperty);
         set => SetValue(IsPasswordProperty, value);
     }
+    public Color BackgroundColor_Entry
+    {
+        get => (Color)GetValue(BackgroundColor_EntryProperty);
+        set => SetValue(BackgroundColor_EntryProperty, value);
+    }
     public KeyboardEnum KeyBoard
     {
         get => (KeyboardEnum)GetValue(KeyBoardProperty);
@@ -140,6 +147,7 @@ public class FloatingEntry : ContentView
     }
 
     public static readonly BindableProperty TextProperty = BindableProperty.Create(nameof(Text), typeof(string), typeof(FloatingEntry), string.Empty, BindingMode.TwoWay, null, HandleBindingPropertyChangedDelegate);
+    public static readonly BindableProperty BackgroundColor_EntryProperty = BindableProperty.Create(nameof(BackgroundColor_Entry), typeof(Color), typeof(FloatingEntry), default, BindingMode.TwoWay, null);
     public static readonly BindableProperty IsPasswordProperty = BindableProperty.Create(nameof(IsPassword), typeof(bool), typeof(FloatingEntry), default, BindingMode.TwoWay, null);
     public static readonly BindableProperty KeyBoardProperty = BindableProperty.Create(nameof(KeyBoard), typeof(KeyboardEnum), typeof(FloatingEntry), KeyboardEnum.Text, BindingMode.OneWay, null, FieldKeyboardPropertyChangedDelegate);
 

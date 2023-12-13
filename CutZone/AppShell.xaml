@@ -10,7 +10,7 @@
     FlyoutIsPresented="False"
     FlyoutWidth="59">
 
-    <ShellContent ContentTemplate="{DataTemplate views:LoginPage}" FlyoutItemIsVisible="False" />
+    <!--<ShellContent ContentTemplate="{DataTemplate views:LoginPage}" FlyoutItemIsVisible="False" />-->
 
 
     <!--  Desktop/Tablet  -->
